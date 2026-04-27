@@ -5,10 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact & Location — Deeply Rooted Hair Essentials</title>
   <meta name="description" content="Contact Deeply Rooted Hair Essentials. Visit us at Janerockstar Salon, 18300 Gridley Rd Suite 230, Artesia, CA 90701. Professional stylist registration available.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta property="og:title" content="Contact — Deeply Rooted Hair Essentials">
+  <meta property="og:description" content="Visit us at Janerockstar Salon, Artesia CA. Professional stylist registration available.">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
   <link rel="stylesheet" href="styles/pages/contact.css">
+
+  <noscript>
+    <style>
+      .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .reveal-blur {
+        opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Navigation -->
   <nav class="navbar scrolled" id="navbar">
@@ -50,7 +67,7 @@
       <div class="contact-grid">
 
         <!-- Contact Form -->
-        <div class="contact-form-card reveal">
+        <div class="contact-form-card reveal reveal-left">
           <h2>Send Us a Message</h2>
           <p>Have a question about our products or services? Fill out the form and we'll get back to you within 24 hours.</p>
 
@@ -86,7 +103,7 @@
               <textarea id="contact-message" name="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
               <div class="form-error"></div>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message →</button>
+            <button type="submit" class="btn btn-primary btn-ripple" style="width:100%;">Send Message →</button>
           </form>
         </div>
 
@@ -94,7 +111,7 @@
         <div class="contact-sidebar">
 
           <!-- Contact Info -->
-          <div class="contact-info-card reveal reveal-delay-1">
+          <div class="contact-info-card reveal reveal-right reveal-delay-1">
             <h3>Find Us</h3>
             <div class="contact-info-item">
               <div class="contact-info-icon">📍</div>
@@ -225,7 +242,7 @@
             <label for="pro-message">Additional Information</label>
             <textarea id="pro-message" name="pro_message" class="form-textarea" placeholder="Tell us about your salon, how many clients you serve, or any other questions..."></textarea>
           </div>
-          <button type="submit" id="pro-submit-btn" class="btn btn-primary" style="width:100%;">Submit Professional Application →</button>
+          <button type="submit" id="pro-submit-btn" class="btn btn-primary btn-ripple" style="width:100%;">Submit Professional Application →</button>
         </form>
       </div>
     </div>
@@ -244,8 +261,15 @@
           </div>
         </div>
         <div><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="hair-botox-101.html">Hair Botox 101</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
-        <div><h4>Products</h4><div class="footer-links"><a href="products.html">Cynty</a><a href="products.html">Michelle</a><a href="products.html">Lea</a><a href="products.html">Scalp Treatment</a></div></div>
+        <div><h4>Products</h4><div class="footer-links"><a href="products.html">Cynty</a><a href="products.html">Scalp Treatment</a></div></div>
         <div><h4>Contact Us</h4><div class="footer-contact"><p><span>📍</span> 18300 Gridley Rd Suite 230, Artesia, CA 90701</p><p><span>📞</span> <a href="tel:5628507110">562-850-7110</a></p><p><span>🌐</span> <a href="https://janerockstarsalon.com" target="_blank">janerockstarsalon.com</a></p></div></div>
+      </div>
+      <!-- Footer Trust Badges -->
+      <div class="footer-trust">
+        <span class="footer-trust-item"><span class="footer-trust-icon">🔒</span> Secure Checkout</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🚚</span> Free Shipping $100+</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🏆</span> Professional Grade</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🌿</span> Clean Ingredients</span>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Deeply Rooted Hair Essentials. All rights reserved.</p>
@@ -253,6 +277,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg class="back-to-top-ring" viewBox="0 0 36 36">
+      <circle class="ring-bg" cx="18" cy="18" r="16" fill="none" stroke="rgba(197,165,90,0.2)" stroke-width="2"/>
+      <circle class="ring-progress" cx="18" cy="18" r="16" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="100.53" stroke-dashoffset="100.53" stroke-linecap="round"/>
+    </svg>
+    <span class="back-to-top-arrow">↑</span>
+  </button>
 
   <script src="scripts/main.js"></script>
 </body>

@@ -1,5 +1,98 @@
 /* ---- About Page Styles ---- */
 
+/* Nav Logo Image */
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo-img { height: 42px; width: 42px; object-fit: contain; border-radius: 50%; background: #fff; padding: 3px; box-shadow: 0 0 0 2px var(--color-gold); }
+.nav-logo-text { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-dark); letter-spacing: -0.02em; }
+.nav-logo-text span { color: var(--color-gold); }
+
+/* Logo Highlight Section */
+.logo-highlight-section {
+  padding: var(--space-5xl) 0;
+  background: linear-gradient(135deg, #0d1a0f 0%, #162012 40%, #1c2c14 100%);
+  position: relative; overflow: hidden;
+}
+.logo-highlight-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(184,145,55,0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 80% at 80% 50%, rgba(122,139,111,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.logo-highlight-inner {
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+  gap: var(--space-4xl); position: relative; z-index: 1;
+}
+.logo-glow-ring {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 340px; height: 340px; margin: 0 auto;
+}
+.logo-glow-ring::before {
+  content: ''; position: absolute; inset: -16px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 20%, var(--color-gold) 40%, transparent 60%, var(--color-sage) 80%, transparent 100%);
+  animation: spin-ring 8s linear infinite; opacity: 0.6;
+}
+.logo-glow-ring::after {
+  content: ''; position: absolute; inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, transparent 20%, rgba(184,145,55,0.4) 40%, transparent 60%, rgba(122,139,111,0.3) 80%, transparent 100%);
+  animation: spin-ring 5s linear infinite reverse; opacity: 0.5;
+}
+@keyframes spin-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.logo-glow-pulse {
+  position: absolute; inset: -32px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,145,55,0.2) 0%, rgba(184,145,55,0.05) 50%, transparent 70%);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+.logo-highlight-img {
+  width: 280px; height: 280px; object-fit: contain;
+  border-radius: 50%; background: #fff;
+  box-shadow: 0 0 60px rgba(184,145,55,0.5), 0 0 120px rgba(184,145,55,0.2), 0 8px 40px rgba(0,0,0,0.6);
+  position: relative; z-index: 2;
+  animation: float-logo 5s ease-in-out infinite;
+  padding: 20px;
+}
+@keyframes float-logo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Logo Text Side */
+.logo-highlight-text { color: #fff; }
+.logo-highlight-text .subtitle { color: var(--color-gold-light) !important; }
+.logo-highlight-text h2 {
+  color: #fff; font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 2px 20px rgba(184,145,55,0.3);
+}
+.logo-highlight-text p { color: rgba(255,255,255,0.78); line-height: 1.9; font-size: 1.05rem; }
+
+.logo-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-xl); }
+.logo-badge {
+  background: rgba(184,145,55,0.15); border: 1px solid rgba(184,145,55,0.4);
+  color: var(--color-gold-light); padding: 0.45rem 1.1rem;
+  border-radius: 50px; font-size: 0.88rem; font-weight: 600;
+  letter-spacing: 0.5px; transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.logo-badge:hover {
+  background: rgba(184,145,55,0.3); border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .logo-highlight-inner { grid-template-columns: 1fr; text-align: center; }
+  .logo-glow-ring { width: 260px; height: 260px; }
+  .logo-highlight-img { width: 220px; height: 220px; }
+  .logo-badges { justify-content: center; }
+}
+
+
 .about-story { padding: var(--space-5xl) 0; }
 .about-story .grid-2 { gap: var(--space-3xl); }
 .about-story-image {

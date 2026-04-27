@@ -5,15 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deeply Rooted Hair Essentials — Professional Hair Botox Care</title>
   <meta name="description" content="Unleash the beauty of your hair with professional Hair Botox treatments. Needle-free, formaldehyde-free, chemical-free solutions for salon-smooth hair. Healthy Scalp. Salon-smooth hair.">
+
+  <!-- Performance: Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://hair-botox-deeply-rooted.myshopify.com">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Deeply Rooted Hair Essentials — Professional Hair Botox Care">
+  <meta property="og:description" content="Needle-free, formaldehyde-free Hair Botox treatments. Healthy Scalp. Salon-smooth hair.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo.png">
+
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/pages/home.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Deeply Rooted Hair Essentials",
+    "description": "Professional Hair Botox treatments — needle-free, formaldehyde-free, chemical-free. Healthy Scalp. Salon-smooth hair.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "18300 Gridley Rd Suite 230",
+      "addressLocality": "Artesia",
+      "addressRegion": "CA",
+      "postalCode": "90701",
+      "addressCountry": "US"
+    },
+    "telephone": "562-850-7110",
+    "url": "https://janerockstarsalon.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "500"
+    }
+  }
+  </script>
+
+  <!-- Fallback: show all content if JavaScript is disabled (e.g. mobile data-saver mode) -->
+  <noscript>
+    <style>
+      .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .reveal-blur {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">Deeply <span>Rooted</span></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="assets/images/logo.png" alt="Deeply Rooted Logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="nav-logo-fallback" style="display:none">RD</div>
+        </div>
+        <span class="nav-logo-text">Deeply <em>Rooted</em></span>
+      </a>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="products.html">Shop</a>
@@ -39,159 +97,394 @@
     <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary" style="margin-top:1rem;">Shop Now</a>
   </div>
 
-  <!-- Hero Section -->
+  <!-- ═══════════════════════════════════════════
+       HERO — Logo-Centered Design
+  ═══════════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="subtitle">Deeply Rooted Hair Essentials</p>
-        <h1>Unleash the <em>Beauty</em> of Your Hair with Professional Hair Botox Care</h1>
-        <p>Healthy Scalp. Salon-smooth hair. Grounded in Jeremiah 17:8 — our restorative treatments nourish your hair from root to tip.</p>
-        <div class="hero-buttons">
-          <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary">Shop Now →</a>
-          <a href="hair-botox-101.html" class="btn btn-secondary">Learn More</a>
-        </div>
+
+    <!-- Particle container -->
+    <div class="hero-particles" id="hero-particles"></div>
+
+    <!-- Botanical leaf decorations -->
+    <div class="hero-leaf hero-leaf-left" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+        <path d="M120 145 C92 128, 60 133, 40 154 C60 140, 92 137, 120 145Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+        <path d="M108 182 C80 164, 48 169, 28 192 C48 177, 80 174, 108 182Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M80 260 C55 290, 35 330, 25 380" stroke="rgba(255,255,255,0.13)" stroke-width="1.2" fill="none"/>
+        <path d="M72 285 C50 275, 28 278, 12 292 C28 283, 50 282, 72 285Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="hero-leaf hero-leaf-right" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+        <path d="M80 260 C55 290, 35 330, 25 380" stroke="rgba(255,255,255,0.11)" stroke-width="1.2" fill="none"/>
+        <path d="M72 285 C50 275, 28 278, 12 292 C28 283, 50 282, 72 285Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- Sparkle decorations -->
+    <div class="hero-sparkle hero-sparkle-1" aria-hidden="true">✦</div>
+    <div class="hero-sparkle hero-sparkle-2" aria-hidden="true">✦</div>
+    <div class="hero-sparkle hero-sparkle-3" aria-hidden="true">✧</div>
+    <div class="hero-sparkle hero-sparkle-4" aria-hidden="true">✦</div>
+    <div class="hero-sparkle hero-sparkle-5" aria-hidden="true">✧</div>
+
+    <div class="hero-inner">
+      <!-- Logo Showcase with Parallax -->
+      <div class="hero-logo-showcase" id="hero-logo-parallax">
+        <div class="logo-glow"></div>
+        <div class="logo-pulse-ring"></div>
+        <div class="logo-orbit-ring"></div>
+        <img src="assets/images/logo.png" alt="Deeply Rooted Hair Essentials" class="hero-logo-main" onerror="this.style.display='none'">
       </div>
-      <div class="hero-image">
-        <img src="assets/images/hero-products.png" alt="Deeply Rooted Hair Essentials product lineup featuring Cynty, Michelle, and Lea hair botox treatments" loading="eager">
+
+      <!-- Brand Name -->
+      <div class="hero-brand-name">
+        <span class="brand-line-top">DEEPLY ROOTED</span>
+        <span class="brand-line-bottom">Hair Essentials</span>
       </div>
+
+      <!-- Rating badge -->
+      <div class="hero-rating">
+        <span class="rating-star">★</span>
+        <span class="rating-score">5.0</span>
+        <span class="rating-star">★</span>
+        <span class="rating-count">(500+ Verified Reviews)</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline">Unleash the <em class="gradient-text">Beauty</em> of Your Hair</h1>
+      <p class="hero-sub">Healthy Scalp. Salon-smooth hair. Grounded in <strong>Jeremiah 17:8</strong> — our restorative treatments nourish your hair from root to tip.</p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-actions">
+        <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-gold-lg">Shop Now <span class="btn-arrow">›</span></a>
+        <a href="hair-botox-101.html" class="btn btn-ghost-lg">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
     </div>
   </section>
 
-  <!-- Trust Badges -->
-  <section class="trust-badges" id="trust-badges">
+  <!-- ═══════════════════════════════════════════
+       PRODUCT SPOTLIGHT — Cynty
+  ═══════════════════════════════════════════ -->
+  <section class="product-spotlight section" id="product-spotlight">
     <div class="container">
-      <div class="trust-badges-grid">
-        <div class="trust-badge reveal">
-          <div class="trust-badge-icon">★</div>
-          <h4>Premium Quality</h4>
-          <p>Professional-grade formulations crafted for excellence</p>
+      <div class="spotlight-grid">
+        <div class="spotlight-image reveal reveal-left">
+          <div class="spotlight-image-card">
+            <img src="assets/images/product-cynty.png" alt="Cynty Hair Botox Treatment" loading="lazy">
+          </div>
         </div>
-        <div class="trust-badge reveal reveal-delay-1">
-          <div class="trust-badge-icon">✓</div>
-          <h4>Best Price Guarantee</h4>
-          <p>Exceptional value for salon-quality results</p>
-        </div>
-        <div class="trust-badge reveal reveal-delay-2">
-          <div class="trust-badge-icon">◆</div>
-          <h4>100% Authentic Original</h4>
-          <p>Genuine products — never imitations</p>
+        <div class="spotlight-content reveal reveal-right reveal-delay-1">
+          <p class="subtitle">Our Signature Treatment</p>
+          <h2>Meet <em>Cynty</em></h2>
+          <p class="spotlight-lead">The ultimate frizz solution. Lasts up to 3–5 months. Restores damaged fibers with deep keratin and collagen infusion.</p>
+          <div class="spotlight-badges">
+            <span class="spotlight-badge">🌿 Vegan Certified</span>
+            <span class="spotlight-badge">🐰 Cruelty-Free</span>
+            <span class="spotlight-badge">🚫 Paraben-Free</span>
+          </div>
+          <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary btn-ripple" style="margin-top: 1.5rem;">Shop Cynty →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Problem / Solution -->
+  <!-- ═══════════════════════════════════════════
+       BRAND STRIP — Stats
+  ═══════════════════════════════════════════ -->
+  <section class="brand-strip">
+    <div class="container">
+      <div class="brand-strip-inner">
+        <div class="brand-stats">
+          <div class="brand-stat reveal">
+            <span class="stat-number" data-counter="5" data-prefix="3–">3–5</span>
+            <span class="stat-label">Months Lasting</span>
+          </div>
+          <div class="brand-stat reveal reveal-delay-1">
+            <span class="stat-number" data-counter="40" data-suffix="%">40%</span>
+            <span class="stat-label">Straighter Hair</span>
+          </div>
+          <div class="brand-stat reveal reveal-delay-2">
+            <span class="stat-number" data-counter="100" data-suffix="%">100%</span>
+            <span class="stat-label">Chemical-Free</span>
+          </div>
+          <div class="brand-stat reveal reveal-delay-3">
+            <span class="stat-number" data-counter="500" data-suffix="+">500+</span>
+            <span class="stat-label">Happy Clients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM / SOLUTION
+  ═══════════════════════════════════════════ -->
   <section class="problem-solution section" id="problem-solution">
     <div class="container">
-      <div class="problem-section reveal">
-        <div class="grid-2">
-          <div>
-            <h2>POV: You've tried <em>EVERYTHING</em>… but your hair still feels dry, frizzy, and unmanageable.</h2>
-            <p class="solution-text">
-              We get it. Countless products, endless salon visits, and still no lasting results. That's exactly why we created Deeply Rooted Hair Essentials. Our professional Hair Botox treatments go beyond surface-level fixes — they repair, restore, and rejuvenate your hair from the inside out.
-            </p>
-            <div class="solution-highlights">
-              <div class="highlight-chip"><span class="check">✓</span> Needle-free</div>
-              <div class="highlight-chip"><span class="check">✓</span> Formaldehyde-free</div>
-              <div class="highlight-chip"><span class="check">✓</span> Chemical-free</div>
-            </div>
+      <div class="ps-grid">
+        <div class="ps-image reveal reveal-left">
+          <img src="assets/images/product-cynty.png" alt="Deeply Rooted Cynty hair botox treatment" loading="lazy">
+          <div class="ps-image-badge">
+            <span>✓ Clinically Smooth</span>
           </div>
-          <div style="text-align:center;">
-            <img src="assets/images/product-cynty.png" alt="Deeply Rooted Cynty hair botox treatment" style="max-width:340px; border-radius:16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);">
+        </div>
+        <div class="ps-content reveal reveal-right reveal-delay-1">
+          <p class="subtitle">The Problem</p>
+          <h2>You've tried <em>everything</em>… and your hair still suffers.</h2>
+          <p class="ps-lead">Frizz. Dryness. Breakage. Countless products that promise miracles but deliver nothing. We built Deeply Rooted because your hair deserves better than empty promises.</p>
+          <div class="ps-checks">
+            <div class="ps-check"><span class="check-icon">✦</span><span>Repairs damage from root to tip</span></div>
+            <div class="ps-check"><span class="check-icon">✦</span><span>Eliminates frizz for months — not days</span></div>
+            <div class="ps-check"><span class="check-icon">✦</span><span>Safe for color-treated &amp; chemically processed hair</span></div>
+            <div class="ps-check"><span class="check-icon">✦</span><span>No needles, no formaldehyde, no compromise</span></div>
           </div>
+          <a href="hair-botox-101.html" class="btn btn-primary btn-ripple" style="margin-top: 1.5rem;">Discover Hair Botox →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Key Benefits -->
-  <section class="benefits section" id="benefits">
+  <!-- ═══════════════════════════════════════════
+       LIFESTYLE GALLERY — Product Promotion
+  ═══════════════════════════════════════════ -->
+  <section class="lifestyle-section section" id="lifestyle">
+    <div class="container">
+      <div class="section-header">
+        <p class="subtitle">Real Results, Real People</p>
+        <h2>See It. <em>Love It.</em> Live It.</h2>
+        <p>Our products don't just promise — they deliver. See how Deeply Rooted transforms hair and confidence, one client at a time.</p>
+      </div>
+      <div class="lifestyle-grid">
+        <div class="lifestyle-card lifestyle-card-tall reveal reveal-left">
+          <img src="assets/images/promo-1.jpg" alt="Model showcasing Deeply Rooted Hair Botox and Scalp Treatment products" loading="lazy">
+          <div class="lifestyle-overlay">
+            <span class="lifestyle-tag">Hair Botox + Scalp Treatment</span>
+          </div>
+        </div>
+        <div class="lifestyle-card reveal reveal-delay-1">
+          <img src="assets/images/promo-2.jpg" alt="Close-up of Deeply Rooted Hair Essential products" loading="lazy">
+          <div class="lifestyle-overlay">
+            <span class="lifestyle-tag">Professional Results</span>
+          </div>
+        </div>
+        <div class="lifestyle-card reveal reveal-right reveal-delay-2">
+          <img src="assets/images/promo-3.jpg" alt="Deeply Rooted Hair Botox Cynty and Scalp Treatment" loading="lazy">
+          <div class="lifestyle-overlay">
+            <span class="lifestyle-tag">Salon-Grade at Home</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: var(--space-xl);">
+        <a href="products.html" class="btn btn-primary btn-ripple">Shop Our Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BENTO GRID — Why Choose Us
+  ═══════════════════════════════════════════ -->
+  <section class="bento-section section" id="benefits">
     <div class="container">
       <div class="section-header">
         <p class="subtitle">Why Choose Us</p>
-        <h2>The Benefits You'll Feel</h2>
+        <h2>The Benefits You'll <em>Feel</em></h2>
         <p>Our professional-grade treatments deliver real, lasting results you can see and touch.</p>
       </div>
-      <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <div class="benefit-icon">✦</div>
-          <h4>Smoother Hair</h4>
-          <p>Eliminates frizz and flyaways for silky, manageable locks that last months.</p>
+      <div class="bento-grid">
+
+        <!-- Row 1: Wide card + Tall card -->
+        <div class="bento-card bento-card-wide bento-card--gold bento-image-card reveal reveal-left">
+          <div class="bento-image-wrap">
+            <img src="assets/images/before-after.png" alt="Before and after Hair Botox treatment" loading="lazy">
+          </div>
+          <div>
+            <div class="bento-icon-wrap"><span class="bento-icon">✦</span></div>
+            <h4>Salon-Smooth Results</h4>
+            <p>See the transformation — from frizzy and damaged to silky, salon-perfect hair that lasts 3–5 months with every treatment.</p>
+          </div>
         </div>
-        <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-icon">🛡</div>
+
+        <div class="bento-card bento-card-tall bento-card--dark reveal reveal-scale reveal-delay-1">
+          <div class="bento-icon-wrap"><span class="bento-icon">🚫</span></div>
+          <div class="bento-tall-stat" data-counter="100" data-suffix="%">0%</div>
+          <h4>Chemical-Free</h4>
+          <p>No formaldehyde. No needles. No parabens. No compromise. Just pure, restorative care your hair deserves.</p>
+        </div>
+
+        <!-- Row 2: Standard cards -->
+        <div class="bento-card bento-card--glass reveal reveal-delay-2">
+          <div class="bento-icon-wrap"><span class="bento-icon">✨</span></div>
+          <h4>Silky Smooth</h4>
+          <p>Eliminates frizz and flyaways for silky, manageable locks that last months — not days.</p>
+        </div>
+
+        <div class="bento-card bento-card--sage reveal reveal-delay-3">
+          <div class="bento-icon-wrap"><span class="bento-icon">🛡️</span></div>
           <h4>Heat Protection</h4>
-          <p>Creates a protective barrier against styling tools and environmental damage.</p>
+          <p>Creates an invisible protective barrier against heat styling tools and environmental damage.</p>
         </div>
-        <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-icon">🎨</div>
-          <h4>Preserves Color</h4>
-          <p>Safe for color-treated hair — helps maintain vibrancy and prevents fading.</p>
+
+        <!-- Row 3: Standard cards -->
+        <div class="bento-card bento-card--glass reveal reveal-blur reveal-delay-4">
+          <div class="bento-icon-wrap"><span class="bento-icon">🎨</span></div>
+          <h4>Color Safe</h4>
+          <p>Perfectly safe for color-treated hair — helps maintain vibrancy and prevents fading over time.</p>
         </div>
-        <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-icon">🌱</div>
-          <h4>Scalp Health</h4>
-          <p>Nourishes the scalp to promote healthy hair growth from the roots.</p>
+
+        <div class="bento-card bento-card-wide bento-card--glass reveal reveal-right reveal-delay-5">
+          <div class="bento-icon-wrap"><span class="bento-icon">🌱</span></div>
+          <h4>Scalp Health & Growth</h4>
+          <p>Nourishes the scalp to promote healthy hair growth from the roots. Our treatments go beyond surface care — they create an optimal environment for stronger, thicker, and more resilient hair.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section class="featured-products section" id="featured-products">
-    <div class="container">
-      <div class="section-header">
-        <p class="subtitle">Our Collection</p>
-        <h2>Professional Hair Botox Treatments</h2>
-        <p>Three expertly formulated treatments designed for professional stylists to deliver stunning results.</p>
-      </div>
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <span class="badge badge-pro">Professional Use</span>
-          <div class="product-card-image">
-            <img src="assets/images/product-cynty.png" alt="Cynty Hair Botox Treatment">
-          </div>
-          <div class="product-card-body">
-            <h3>Cynty</h3>
-            <p class="product-desc">Ultimate frizz solution. Lasts up to 3-5 months. Restores damaged fibers with deep keratin and collagen infusion.</p>
-            <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary">Shop Now</a>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-1">
-          <span class="badge badge-pro">Professional Use</span>
-          <div class="product-card-image">
-            <img src="assets/images/product-michelle.png" alt="Michelle Hair Botox Treatment">
-          </div>
-          <div class="product-card-body">
-            <h3>Michelle</h3>
-            <p class="product-desc">Curl-enhancing formula that defines and hydrates. Perfect for clients seeking bouncy, frizz-free curls.</p>
-            <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary">Shop Now</a>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-2">
-          <span class="badge badge-pro">Professional Use</span>
-          <div class="product-card-image">
-            <img src="assets/images/product-lea.png" alt="Lea Hair Botox Treatment">
-          </div>
-          <div class="product-card-body">
-            <h3>Lea</h3>
-            <p class="product-desc">Achieve up to 40% straighter hair. A smoothing powerhouse that tames even the most unruly textures.</p>
-            <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary">Shop Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonial -->
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIAL
+  ═══════════════════════════════════════════ -->
   <section class="testimonial-section" id="testimonial">
     <div class="container">
-      <div class="reveal">
-        <p class="subtitle" style="color: var(--color-gold-light);">What Our Clients Say</p>
-        <blockquote class="testimonial-quote">
-          "After one Hair Botox treatment, my hair felt like silk. The frizz was completely gone, and the results lasted for months. I've never felt more confident about my hair."
-        </blockquote>
-        <p class="testimonial-author">— Professional Stylist, Los Angeles CA</p>
+      <div class="testimonial-carousel reveal" id="testimonial-carousel">
+        <div class="testimonial-logo">
+          <img src="assets/images/logo.png" alt="Deeply Rooted" onerror="this.style.display='none'">
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="testimonial-slide active" data-slide="0">
+          <blockquote class="testimonial-quote">
+            "After one Hair Botox treatment, my hair felt like silk. The frizz was completely gone, and the results lasted for months. I've never felt more confident about my hair."
+          </blockquote>
+          <p class="testimonial-author">— Professional Stylist, Los Angeles CA</p>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide" data-slide="1">
+          <blockquote class="testimonial-quote">
+            "My clients can't stop touching their hair after a Cynty treatment. The results are consistently amazing — shiny, smooth, and so manageable. This is my go-to product now."
+          </blockquote>
+          <p class="testimonial-author">— Salon Owner, San Diego CA</p>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide" data-slide="2">
+          <blockquote class="testimonial-quote">
+            "I was skeptical about Hair Botox, but Deeply Rooted changed my mind. No chemicals, no formaldehyde, and my color-treated hair has never looked better. Truly a game-changer."
+          </blockquote>
+          <p class="testimonial-author">— Color Specialist, Orange County CA</p>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+
+        <!-- Carousel dots -->
+        <div class="testimonial-dots">
+          <button class="testimonial-dot active" data-dot="0" aria-label="Slide 1"></button>
+          <button class="testimonial-dot" data-dot="1" aria-label="Slide 2"></button>
+          <button class="testimonial-dot" data-dot="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST SIGNALS
+  ═══════════════════════════════════════════ -->
+  <section class="trust-signals" id="trust-signals">
+    <div class="container">
+      <div class="trust-badges">
+        <div class="trust-badge reveal reveal-scale">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <span class="trust-badge-label">Formaldehyde-Free</span>
+        </div>
+        <div class="trust-badge reveal reveal-scale reveal-delay-1">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4.5 8-8 8-12A8 8 0 0 0 4 10c0 4 4 7.5 8 12z"/><line x1="8" y1="9" x2="16" y2="13"/><line x1="16" y1="9" x2="8" y2="13"/></svg>
+          </div>
+          <span class="trust-badge-label">Paraben-Free</span>
+        </div>
+        <div class="trust-badge reveal reveal-scale reveal-delay-2">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8c.7-1 1-2.2 1-3.5C18 2.5 16 1 16 1s-2 1.5-2 3.5c0 1.3.3 2.5 1 3.5"/><path d="M12 12c0-3-2.5-5.5-5-7 0 4.5 2 8 5 11"/><path d="M12 12c0-3 2.5-5.5 5-7 0 4.5-2 8-5 11"/><path d="M12 22v-6"/><path d="M9 19c-2 0-3.5-1-3.5-1"/><path d="M15 19c2 0 3.5-1 3.5-1"/></svg>
+          </div>
+          <span class="trust-badge-label">Vegan Certified</span>
+        </div>
+        <div class="trust-badge reveal reveal-scale reveal-delay-3">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/><path d="M12 13c1.5-1 3-1.5 3-3.5S13.5 6 12 6s-3 1.5-3 3.5 1.5 2.5 3 3.5z"/></svg>
+          </div>
+          <span class="trust-badge-label">Cruelty-Free</span>
+        </div>
+        <div class="trust-badge reveal reveal-scale reveal-delay-4">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-5.8-2.2L3.3 16.9a2 2 0 1 1 2.8-2.8L8 16"/></svg>
+          </div>
+          <span class="trust-badge-label">No Needles</span>
+        </div>
+        <div class="trust-badge reveal reveal-scale reveal-delay-5">
+          <div class="trust-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="trust-badge-label">500+ 5-Star Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Scrolling Marquee -->
+    <div class="trust-marquee">
+      <div class="trust-marquee-track">
+        <span class="marquee-item"><span class="marquee-dot"></span>Trusted by 500+ professionals</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Formaldehyde-Free Formula</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Professional Grade Quality</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Healthy Scalp · Salon-Smooth Hair</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Jeremiah 17:8 — Deeply Rooted</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Vegan · Cruelty-Free · Paraben-Free</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Results Last 3–5 Months</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Needle-Free · Chemical-Free</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item"><span class="marquee-dot"></span>Trusted by 500+ professionals</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Formaldehyde-Free Formula</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Professional Grade Quality</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Healthy Scalp · Salon-Smooth Hair</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Jeremiah 17:8 — Deeply Rooted</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Vegan · Cruelty-Free · Paraben-Free</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Results Last 3–5 Months</span>
+        <span class="marquee-item"><span class="marquee-dot"></span>Needle-Free · Chemical-Free</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="container">
+      <div class="cta-banner-inner reveal">
+        <p class="subtitle" style="color: var(--color-gold-light);">Ready to Transform?</p>
+        <h2>Your Best Hair Starts Here.</h2>
+        <p>Visit us at Janerockstar Salon in Artesia, CA — or shop our full collection online.</p>
+        <div class="cta-banner-actions">
+          <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-gold-lg btn-ripple">Shop the Collection</a>
+          <a href="contact.html" class="btn btn-ghost-lg btn-ripple">Book a Consultation</a>
+        </div>
       </div>
     </div>
   </section>
@@ -201,7 +494,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">Deeply <span>Rooted</span></a>
+          <div class="footer-logo-wrap">
+            <img src="assets/images/logo.png" alt="Deeply Rooted Hair Essentials" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <a href="index.html" class="nav-logo" style="display:none">Deeply <span>Rooted</span></a>
+          </div>
           <p>Professional Hair Botox treatments rooted in faith, formulated with care. Healthy scalp. Salon-smooth hair.</p>
           <div class="footer-social" style="margin-top:1rem;">
             <a href="https://www.facebook.com/profile.php?id=deeplyrooted" target="_blank" aria-label="Facebook">f</a>
@@ -222,8 +518,6 @@
           <h4>Products</h4>
           <div class="footer-links">
             <a href="products.html">Cynty</a>
-            <a href="products.html">Michelle</a>
-            <a href="products.html">Lea</a>
             <a href="products.html">Scalp Treatment</a>
           </div>
         </div>
@@ -236,6 +530,13 @@
           </div>
         </div>
       </div>
+      <!-- Footer Trust Badges -->
+      <div class="footer-trust">
+        <span class="footer-trust-item"><span class="footer-trust-icon">🔒</span> Secure Checkout</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🚚</span> Free Shipping on Orders $100+</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🏆</span> Professional Grade</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🌿</span> Clean Ingredients</span>
+      </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Deeply Rooted Hair Essentials. All rights reserved.</p>
         <p class="footer-scripture">"Blessed is the one who trusts in the Lord" — Jeremiah 17:8</p>
@@ -243,6 +544,37 @@
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg class="back-to-top-ring" viewBox="0 0 36 36">
+      <circle class="ring-bg" cx="18" cy="18" r="16" fill="none" stroke="rgba(197,165,90,0.2)" stroke-width="2"/>
+      <circle class="ring-progress" cx="18" cy="18" r="16" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="100.53" stroke-dashoffset="100.53" stroke-linecap="round"/>
+    </svg>
+    <span class="back-to-top-arrow">↑</span>
+  </button>
+
   <script src="scripts/main.js"></script>
+  <script>
+    /* ── Particle Generator ── */
+    (function() {
+      const container = document.getElementById('hero-particles');
+      if (!container) return;
+      const count = 35;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          width: ${Math.random() * 4 + 2}px;
+          height: ${Math.random() * 4 + 2}px;
+          animation-delay: ${Math.random() * 8}s;
+          animation-duration: ${Math.random() * 10 + 8}s;
+          opacity: ${Math.random() * 0.5 + 0.1};
+        `;
+        container.appendChild(p);
+      }
+    })();
+  </script>
 </body>
 </html>

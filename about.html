@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — Deeply Rooted Hair Essentials</title>
   <meta name="description" content="Learn the story behind Deeply Rooted Hair Essentials — rooted in faith, professional expertise, and a passion for beautiful, healthy hair.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta property="og:title" content="About Us — Deeply Rooted Hair Essentials">
+  <meta property="og:description" content="Rooted in faith. Driven by excellence. Our story.">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
   <link rel="stylesheet" href="styles/pages/about.css">
+
+  <!-- Fallback: show all content if JavaScript is disabled -->
+  <noscript>
+    <style>
+      .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .reveal-blur {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Navigation -->
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">Deeply <span>Rooted</span></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="assets/images/logo.png" alt="Deeply Rooted Logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="nav-logo-fallback" style="display:none">RD</div>
+        </div>
+        <span class="nav-logo-text">Deeply <em>Rooted</em></span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="products.html">Shop</a>
@@ -44,14 +71,36 @@
     </div>
   </section>
 
+  <!-- Logo Highlight Section -->
+  <section class="logo-highlight-section">
+    <div class="container">
+      <div class="logo-highlight-inner reveal">
+        <div class="logo-glow-ring">
+          <div class="logo-glow-pulse"></div>
+          <img src="assets/images/logo.png" alt="Deeply Rooted Hair Essentials Logo" class="logo-highlight-img" id="brand-logo-showcase" onerror="this.style.display='none'">
+        </div>
+        <div class="logo-highlight-text">
+          <p class="subtitle">The Brand Behind the Mission</p>
+          <h2>Deeply Rooted Hair Essentials</h2>
+          <p>Born from faith, refined by expertise — our logo embodies the rooted strength and golden growth of every strand we treat. The tree, the roots, the circle of wholeness — this is who we are.</p>
+          <div class="logo-badges">
+            <span class="logo-badge">🌿 Faith-Driven</span>
+            <span class="logo-badge">🏆 Professional Grade</span>
+            <span class="logo-badge">💛 Salon-Born</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Our Story -->
   <section class="about-story section" id="our-story">
     <div class="container">
       <div class="grid-2">
-        <div class="about-story-image reveal">
+        <div class="about-story-image reveal reveal-left">
           <img src="assets/images/salon-interior.png" alt="Janerockstar Salon — the home of Deeply Rooted Hair Essentials in Artesia, CA">
         </div>
-        <div class="about-story-content reveal reveal-delay-1">
+        <div class="about-story-content reveal reveal-right reveal-delay-1">
           <p class="subtitle">The Beginning</p>
           <h2>From the Chair to Your Hands</h2>
           <p>
@@ -105,17 +154,17 @@
         <p>Three pillars that guide everything we do at Deeply Rooted.</p>
       </div>
       <div class="values-grid">
-        <div class="value-card reveal">
+        <div class="value-card reveal reveal-scale">
           <div class="value-icon">🏆</div>
           <h3>Professional Excellence</h3>
           <p>Our Hair Botox treatments meet the highest professional standards. We partner only with licensed cosmetologists and certified salons to ensure every application delivers exceptional results.</p>
         </div>
-        <div class="value-card reveal reveal-delay-1">
+        <div class="value-card reveal reveal-scale reveal-delay-1">
           <div class="value-icon">🌿</div>
           <h3>Natural Ingredients</h3>
           <p>We are committed to formaldehyde-free, needle-free, and chemical-free formulations. Our products are crafted with keratin, collagen, vitamins, and botanical extracts — nothing harmful, ever.</p>
         </div>
-        <div class="value-card reveal reveal-delay-2">
+        <div class="value-card reveal reveal-scale reveal-delay-2">
           <div class="value-icon">💛</div>
           <h3>Restorative Care</h3>
           <p>True restoration goes beyond surface-level fixes. We treat the whole hair — from scalp to tip — with deep, lasting solutions that improve hair health over time, not just on treatment day.</p>
@@ -149,8 +198,15 @@
           </div>
         </div>
         <div><h4>Quick Links</h4><div class="footer-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="hair-botox-101.html">Hair Botox 101</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
-        <div><h4>Products</h4><div class="footer-links"><a href="products.html">Cynty</a><a href="products.html">Michelle</a><a href="products.html">Lea</a><a href="products.html">Scalp Treatment</a></div></div>
+        <div><h4>Products</h4><div class="footer-links"><a href="products.html">Cynty</a><a href="products.html">Scalp Treatment</a></div></div>
         <div><h4>Contact Us</h4><div class="footer-contact"><p><span>📍</span> 18300 Gridley Rd Suite 230, Artesia, CA 90701</p><p><span>📞</span> <a href="tel:5628507110">562-850-7110</a></p><p><span>🌐</span> <a href="https://janerockstarsalon.com" target="_blank">janerockstarsalon.com</a></p></div></div>
+      </div>
+      <!-- Footer Trust Badges -->
+      <div class="footer-trust">
+        <span class="footer-trust-item"><span class="footer-trust-icon">🔒</span> Secure Checkout</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🚚</span> Free Shipping $100+</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🏆</span> Professional Grade</span>
+        <span class="footer-trust-item"><span class="footer-trust-icon">🌿</span> Clean Ingredients</span>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Deeply Rooted Hair Essentials. All rights reserved.</p>
@@ -159,6 +215,16 @@
     </div>
   </footer>
 
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg class="back-to-top-ring" viewBox="0 0 36 36">
+      <circle class="ring-bg" cx="18" cy="18" r="16" fill="none" stroke="rgba(197,165,90,0.2)" stroke-width="2"/>
+      <circle class="ring-progress" cx="18" cy="18" r="16" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-dasharray="100.53" stroke-dashoffset="100.53" stroke-linecap="round"/>
+    </svg>
+    <span class="back-to-top-arrow">↑</span>
+  </button>
+
+  <script src="scripts/logo-data.js" onerror="console.log('logo-data.js not found - run setup-logo.html first')"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>

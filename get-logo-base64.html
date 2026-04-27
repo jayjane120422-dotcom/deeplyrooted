@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Logo Base64 Helper</title></head>
+<body>
+<h2>Step 1: Click the button below to select your logo file</h2>
+<input type="file" id="fileInput" accept="image/*">
+<br><br>
+<p id="status" style="color:green;font-weight:bold;"></p>
+<textarea id="output" rows="5" cols="80" placeholder="Base64 data URL will appear here..."></textarea>
+<br><br>
+<button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+
+<script>
+document.getElementById('fileInput').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    document.getElementById('output').value = ev.target.result;
+    document.getElementById('status').textContent = '✅ Logo loaded! Now click Copy to Clipboard.';
+  };
+  reader.readAsDataURL(file);
+});
+
+function copyToClipboard() {
+  const ta = document.getElementById('output');
+  ta.select();
+  document.execCommand('copy');
+  document.getElementById('status').textContent = '✅ Copied to clipboard!';
+}
+</script>
+</body>
+</html>

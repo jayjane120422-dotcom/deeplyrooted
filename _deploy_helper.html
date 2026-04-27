@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head><title>Netlify Full Deploy</title>
+<style>
+  body { font-family: 'Courier New', monospace; background: #1a1a1a; color: #00ff88; padding: 2rem; }
+  h2 { color: #C5A55A; }
+  #log { white-space: pre-wrap; font-size: 0.85rem; line-height: 1.6; max-height: 80vh; overflow-y: auto; }
+</style>
+</head>
+<body>
+<h2>Deeply Rooted — Full Site Deploy</h2>
+<pre id="log">Starting full deployment...</pre>
+<script>
+const SITE_ID = '0ea24ea2-6cd1-4768-b31f-884b18b2a4ec';
+const TOKEN = 'nfp_MsuEznTvcP6p36vBvVyJF2aYEmzoaPkg7c32';
+const API = 'https://api.netlify.com/api/v1';
+const log = document.getElementById('log');
+function addLog(m) { log.textContent += '\n' + m; log.scrollTop = log.scrollHeight; }
+
+async function sha1Text(text) {
+  const data = new TextEncoder().encode(text);
+  const buf = await crypto.subtle.digest('SHA-1', data);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+async function sha1Bin(buf) {
+  const h = await crypto.subtle.digest('SHA-1', buf);
+  return Array.from(new Uint8Array(h)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const TEXT_FILES = [
+  'index.html', 'about.html', 'products.html', 'contact.html', 'hair-botox-101.html',
+  'styles/main.css', 'styles/pages/home.css', 'styles/pages/about.css',
+  'styles/pages/contact.css', 'styles/pages/education.css', 'styles/pages/products.css',
+  'scripts/main.js', 'netlify.toml'
+];
+const IMG_FILES = [
+  'assets/images/logo.png', 'assets/images/product-cynty.png',
+  'assets/images/product-michelle.png', 'assets/images/product-lea.png',
+  'assets/images/before-after.png', 'assets/images/salon-interior.png', 'assets/images/hero-bg.png'
+];
+
+async function deploy() {
+  try {
+    addLog('📋 Getting current deploy...');
+    const dr = await fetch(`${API}/sites/${SITE_ID}/deploys?per_page=1`, {
+      headers: { Authorization: `Bearer ${TOKEN}` }
+    });
+    const deploys = await dr.json();
+    if (!deploys?.[0]) throw new Error('No deploys');
+    addLog(`  Deploy: ${deploys[0].id}`);
+
+    addLog('📂 Getting file listing...');
+    const fr = await fetch(`${API}/deploys/${deploys[0].id}/files`, {
+      headers: { Authorization: `Bearer ${TOKEN}` }
+    });
+    const curFiles = await fr.json();
+    const hashes = {};
+    for (const f of curFiles) hashes[f.path] = f.sha;
+    addLog(`  ${curFiles.length} files found`);
+
+    addLog('📖 Reading local text files...');
+    const localData = {};
+    for (const f of TEXT_FILES) {
+      try {
+        const r = await fetch(`./${f}?t=${Date.now()}`);
+        if (r.ok) {
+          const c = await r.text();
+          const h = await sha1Text(c);
+          const changed = hashes['/'+f] !== h;
+          localData[f] = { content: c, hash: h, changed };
+          hashes['/'+f] = h;
+          addLog(`  ${changed ? '🔄' : '✓'} ${f}${changed ? ' (CHANGED)' : ''}`);
+        }
+      } catch(e) { addLog(`  ⚠️ ${f}: ${e.message}`); }
+    }
+
+    addLog('🖼️ Reading images...');
+    const imgData = {};
+    for (const f of IMG_FILES) {
+      try {
+        const r = await fetch(`./${f}?t=${Date.now()}`);
+        if (r.ok) {
+          const b = await r.blob();
+          const buf = await b.arrayBuffer();
+          const h = await sha1Bin(buf);
+          imgData[f] = { blob: b, hash: h };
+          hashes['/'+f] = h;
+          addLog(`  ✓ ${f}`);
+        }
+      } catch(e) {}
+    }
+
+    addLog('🚀 Creating deploy...');
+    const ndr = await fetch(`${API}/sites/${SITE_ID}/deploys`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ files: hashes })
+    });
+    const nd = await ndr.json();
+    if (!nd.id) throw new Error('Deploy create failed: ' + JSON.stringify(nd));
+    addLog(`  ID: ${nd.id}`);
+    addLog(`  Required: ${nd.required?.length || 0} files`);
+
+    if (nd.required?.length > 0) {
+      addLog('📤 Uploading...');
+      const req = new Set(nd.required);
+
+      for (const [f, d] of Object.entries(localData)) {
+        if (req.has(d.hash)) {
+          const u = await fetch(`${API}/deploys/${nd.id}/files/${f}`, {
+            method: 'PUT',
+            headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/octet-stream' },
+            body: d.content
+          });
+          addLog(`  ${u.ok ? '✅' : '❌'} ${f}`);
+          if (u.ok) req.delete(d.hash);
+        }
+      }
+
+      for (const [f, d] of Object.entries(imgData)) {
+        if (req.has(d.hash)) {
+          const u = await fetch(`${API}/deploys/${nd.id}/files/${f}`, {
+            method: 'PUT',
+            headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/octet-stream' },
+            body: d.blob
+          });
+          addLog(`  ${u.ok ? '✅' : '❌'} ${f}`);
+          if (u.ok) req.delete(d.hash);
+        }
+      }
+
+      if (req.size > 0) {
+        addLog(`  Fetching ${req.size} from live site...`);
+        for (const [p, h] of Object.entries(hashes)) {
+          if (req.has(h)) {
+            try {
+              const r = await fetch(`https://deeplyrooted.netlify.app${p}?t=${Date.now()}`);
+              if (r.ok) {
+                const b = await r.blob();
+                const fp = p.startsWith('/') ? p.substring(1) : p;
+                const u = await fetch(`${API}/deploys/${nd.id}/files/${fp}`, {
+                  method: 'PUT',
+                  headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/octet-stream' },
+                  body: b
+                });
+                if (u.ok) { addLog(`  ✅ ${p} (live)`); req.delete(h); }
+              }
+            } catch(e) {}
+          }
+        }
+      }
+    }
+
+    addLog('⏳ Waiting...');
+    for (let i = 0; i < 20; i++) {
+      await new Promise(r => setTimeout(r, 2500));
+      const s = await fetch(`${API}/deploys/${nd.id}`, { headers: { Authorization: `Bearer ${TOKEN}` } });
+      const st = await s.json();
+      addLog(`  ${st.state} (${i+1})`);
+      if (st.state === 'ready') {
+        addLog('\n🎉🎉🎉 DEPLOYED! 🎉🎉🎉\n🌐 https://deeplyrooted.netlify.app/');
+        return;
+      }
+      if (st.state === 'error') { addLog('❌ ' + st.error_message); return; }
+    }
+    addLog('⚠️ Still processing...');
+  } catch(e) { addLog('❌ ' + e.message); }
+}
+deploy();
+</script>
+</body>
+</html>
