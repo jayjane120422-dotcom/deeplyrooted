@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/pages/home.css">
   <link rel="stylesheet" href="styles/pages/contact.css">
+  <link rel="stylesheet" href="styles/pages/education.css">
 
   <noscript>
     <style>
@@ -30,7 +31,13 @@
   <!-- Navigation -->
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">Deeply <span>Rooted</span></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="assets/images/logo.png" alt="Deeply Rooted Logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="nav-logo-fallback" style="display:none">RD</div>
+        </div>
+        <span class="nav-logo-text">Deeply <em>Rooted</em></span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="hair-botox-101.html">Hair Botox 101</a>
@@ -50,13 +57,54 @@
     <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary" style="margin-top:1rem;">Shop Now</a>
   </div>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <p class="subtitle" style="color:var(--color-gold-light);">Get in Touch</p>
+  <!-- Page Hero — Animated -->
+  <section class="page-hero edu-hero" id="page-hero-animated">
+
+    <!-- Particle container (JS-generated) -->
+    <div class="edu-hero-particles" id="edu-hero-particles"></div>
+
+    <!-- Botanical leaf decorations -->
+    <div class="edu-hero-leaf edu-hero-leaf-left" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+        <path d="M120 145 C92 128, 60 133, 40 154 C60 140, 92 137, 120 145Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="edu-hero-leaf edu-hero-leaf-right" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- Sparkle decorations -->
+    <div class="edu-sparkle edu-sparkle-1" aria-hidden="true">✦</div>
+    <div class="edu-sparkle edu-sparkle-2" aria-hidden="true">✧</div>
+    <div class="edu-sparkle edu-sparkle-3" aria-hidden="true">✦</div>
+    <div class="edu-sparkle edu-sparkle-4" aria-hidden="true">✧</div>
+    <div class="edu-sparkle edu-sparkle-5" aria-hidden="true">✦</div>
+
+    <!-- Hero Content -->
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="edu-hero-badge">
+        <span>Get in Touch</span>
+      </div>
       <h1>Contact & Location</h1>
       <p>We'd love to hear from you — whether you're a client, a stylist, or simply curious about our products.</p>
+      <div class="edu-hero-tags">
+        <span class="edu-tag">Artesia, CA</span>
+        <span class="edu-tag">Janerockstar Salon</span>
+        <span class="edu-tag">24hr Response</span>
+      </div>
     </div>
+
+    <!-- Animated glow -->
+    <div class="edu-hero-glow" aria-hidden="true"></div>
   </section>
 
   <!-- Contact Main -->

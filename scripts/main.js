@@ -25,8 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     init3DTilt();
   }
 
+
   // Always init these
   initTestimonialCarousel();
+  initGuideTabs();
+  initEduQuickNav();
+  initEduHeroParticles();
+  initEduHeroParallax();
 });
 
 /* ---- Sticky Navbar ---- */
@@ -484,4 +489,160 @@ function init3DTilt() {
       }, 500);
     });
   });
+}
+
+/* ---- Treatment Guide Tabs ---- */
+function initGuideTabs() {
+  const tabs = document.querySelectorAll('.guide-tab');
+  const panels = document.querySelectorAll('.guide-panel');
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-guide');
+
+      // Update tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Update panels
+      panels.forEach(panel => {
+        panel.classList.remove('active');
+        if (panel.getAttribute('data-guide-panel') === target) {
+          panel.classList.add('active');
+          // Re-trigger reveal animations in the new panel
+          panel.querySelectorAll('.reveal').forEach(el => {
+            el.classList.remove('visible');
+            void el.offsetWidth; // Force reflow
+            el.classList.add('visible');
+          });
+        }
+      });
+    });
+  });
+}
+
+/* ---- Education Quick Nav (Sticky + Active Highlighting) ---- */
+function initEduQuickNav() {
+  const quickNav = document.getElementById('edu-quick-nav');
+  if (!quickNav) return;
+
+  const pills = quickNav.querySelectorAll('.edu-nav-pill');
+  if (!pills.length) return;
+
+  // Add shadow when scrolled past hero
+  const pageHero = document.querySelector('.page-hero');
+  if (pageHero) {
+    const heroObserver = new IntersectionObserver(([entry]) => {
+      quickNav.classList.toggle('scrolled', !entry.isIntersecting);
+    }, { threshold: 0 });
+    heroObserver.observe(pageHero);
+  }
+
+  // Smooth scroll on pill click
+  pills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = pill.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const navHeight = 80 + quickNav.offsetHeight;
+        const y = targetEl.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Active section tracking
+  const sections = [];
+  pills.forEach(pill => {
+    const id = pill.getAttribute('href').slice(1);
+    const section = document.getElementById(id);
+    if (section) sections.push({ id, el: section, pill });
+  });
+
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const match = sections.find(s => s.el === entry.target);
+          if (match) {
+            match.pill.classList.add('active');
+            // Scroll the pill into view within the nav
+            match.pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '-80px 0px -50% 0px' });
+
+    sections.forEach(s => sectionObserver.observe(s.el));
+  }
+}
+
+/* ---- Education Hero Particles ---- */
+function initEduHeroParticles() {
+  const container = document.getElementById('edu-hero-particles');
+  if (!container) return;
+
+  const count = 25;
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'edu-particle';
+    const size = Math.random() * 4 + 2;
+    particle.style.setProperty('--size', size + 'px');
+    particle.style.setProperty('--duration', (Math.random() * 6 + 5) + 's');
+    particle.style.setProperty('--delay', (Math.random() * 8) + 's');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = (Math.random() * 80 + 20) + '%';
+    container.appendChild(particle);
+  }
+}
+
+/* ---- Education Hero Parallax on Scroll ---- */
+function initEduHeroParallax() {
+  const hero = document.querySelector('.edu-hero');
+  if (!hero) return;
+
+  const leaves = hero.querySelectorAll('.edu-hero-leaf');
+  const sparkles = hero.querySelectorAll('.edu-sparkle');
+  const dnaHelixes = hero.querySelectorAll('.edu-dna-helix');
+  const glow = hero.querySelector('.edu-hero-glow');
+
+  let ticking = false;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    const heroHeight = hero.offsetHeight;
+    if (scrollY > heroHeight * 1.5) { ticking = false; return; }
+
+    const ratio = scrollY / heroHeight;
+
+    leaves.forEach(leaf => {
+      leaf.style.transform = `translateY(${scrollY * 0.08}px)`;
+    });
+
+    sparkles.forEach((s, i) => {
+      const speed = 0.04 + (i * 0.015);
+      s.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+
+    dnaHelixes.forEach(d => {
+      d.style.transform = `translateY(${scrollY * 0.06}px)`;
+    });
+
+    if (glow) {
+      glow.style.transform = `translateX(-50%) scale(${1 + ratio * 0.2})`;
+      glow.style.opacity = Math.max(0, 1 - ratio * 1.5);
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
 }

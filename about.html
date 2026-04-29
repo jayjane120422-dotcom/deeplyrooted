@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/pages/home.css">
   <link rel="stylesheet" href="styles/pages/about.css">
+  <link rel="stylesheet" href="styles/pages/education.css">
 
   <!-- Fallback: show all content if JavaScript is disabled -->
   <noscript>
@@ -60,13 +61,54 @@
     <a href="https://hair-botox-deeply-rooted.myshopify.com" target="_blank" class="btn btn-primary" style="margin-top:1rem;">Shop Now</a>
   </div>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <p class="subtitle" style="color:var(--color-gold-light);">Our Story</p>
+  <!-- Page Hero — Animated -->
+  <section class="page-hero edu-hero" id="page-hero-animated">
+
+    <!-- Particle container (JS-generated) -->
+    <div class="edu-hero-particles" id="edu-hero-particles"></div>
+
+    <!-- Botanical leaf decorations -->
+    <div class="edu-hero-leaf edu-hero-leaf-left" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+        <path d="M120 145 C92 128, 60 133, 40 154 C60 140, 92 137, 120 145Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.13)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="edu-hero-leaf edu-hero-leaf-right" aria-hidden="true">
+      <svg viewBox="0 0 200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M170 20 C140 80, 100 160, 80 260 C65 340, 70 420, 50 560" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+        <path d="M158 45 C135 38, 110 42, 95 55 C110 48, 135 46, 158 45Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M148 75 C122 62, 95 66, 78 82 C95 72, 122 70, 148 75Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+        <path d="M135 108 C108 93, 78 97, 60 116 C78 104, 108 101, 135 108Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.11)" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <!-- Sparkle decorations -->
+    <div class="edu-sparkle edu-sparkle-1" aria-hidden="true">✦</div>
+    <div class="edu-sparkle edu-sparkle-2" aria-hidden="true">✧</div>
+    <div class="edu-sparkle edu-sparkle-3" aria-hidden="true">✦</div>
+    <div class="edu-sparkle edu-sparkle-4" aria-hidden="true">✧</div>
+    <div class="edu-sparkle edu-sparkle-5" aria-hidden="true">✦</div>
+
+    <!-- Hero Content -->
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="edu-hero-badge">
+        <span>Our Story</span>
+      </div>
       <h1>Rooted in Faith. Driven by Excellence.</h1>
       <p>The story behind Deeply Rooted Hair Essentials — where professional expertise meets genuine care.</p>
+      <div class="edu-hero-tags">
+        <span class="edu-tag">Faith-Driven</span>
+        <span class="edu-tag">Professional Grade</span>
+        <span class="edu-tag">Salon-Born</span>
+      </div>
     </div>
+
+    <!-- Animated glow -->
+    <div class="edu-hero-glow" aria-hidden="true"></div>
   </section>
 
   <!-- Logo Highlight Section -->
@@ -82,11 +124,81 @@
           <h2>Deeply Rooted Hair Essentials</h2>
           <p>Born from faith, refined by expertise — our logo embodies the rooted strength and golden growth of every strand we treat. The tree, the roots, the circle of wholeness — this is who we are.</p>
           <div class="logo-badges">
-            <span class="logo-badge">🌿 Faith-Driven</span>
-            <span class="logo-badge">🏆 Professional Grade</span>
-            <span class="logo-badge">💛 Salon-Born</span>
+            <span class="logo-badge">✦ Faith-Driven</span>
+            <span class="logo-badge">✦ Professional Grade</span>
+            <span class="logo-badge">✦ Salon-Born</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MEET THE FOUNDER — Photo Gallery
+  ═══════════════════════════════════════════ -->
+  <section class="founder-gallery section" id="meet-jane">
+    <div class="container">
+      <div class="section-header">
+        <p class="subtitle">The Face Behind the Brand</p>
+        <h2>Meet Jane Magan Chang</h2>
+        <p>Licensed cosmetologist, salon owner, and the heart behind every Deeply Rooted product.</p>
+      </div>
+
+      <div class="founder-grid">
+        <!-- Main Feature Image -->
+        <div class="founder-card founder-card-main reveal reveal-scale">
+          <div class="founder-img-wrap">
+            <img src="assets/images/promo-3.jpg" alt="Jane Magan Chang — Founder of Deeply Rooted Hair Essentials" loading="lazy">
+            <div class="founder-img-overlay"></div>
+          </div>
+          <div class="founder-caption">
+            <span class="founder-sparkle">✦</span>
+            <h3>Jane Magan Chang</h3>
+            <p>Founder & Lead Formulator</p>
+          </div>
+        </div>
+
+        <!-- Side Gallery -->
+        <div class="founder-card founder-card-sm reveal reveal-right reveal-delay-1">
+          <div class="founder-img-wrap">
+            <img src="assets/images/promo-2.jpg" alt="Jane showcasing Deeply Rooted Scalp Treatment and Cynty Hair Botox" loading="lazy">
+            <div class="founder-img-overlay"></div>
+          </div>
+          <div class="founder-caption">
+            <span class="founder-sparkle">✦</span>
+            <p>Product Showcase</p>
+          </div>
+        </div>
+
+        <div class="founder-card founder-card-sm reveal reveal-right reveal-delay-2">
+          <div class="founder-img-wrap">
+            <img src="assets/images/promo-1.jpg" alt="Jane holding Deeply Rooted Hair Botox products" loading="lazy">
+            <div class="founder-img-overlay"></div>
+          </div>
+          <div class="founder-caption">
+            <span class="founder-sparkle">✦</span>
+            <p>Passion & Craft</p>
+          </div>
+        </div>
+
+        <div class="founder-card founder-card-sm reveal reveal-right reveal-delay-3">
+          <div class="founder-img-wrap">
+            <img src="assets/images/salon-interior.png" alt="Janerockstar Salon interior — where Deeply Rooted was born" loading="lazy">
+            <div class="founder-img-overlay"></div>
+          </div>
+          <div class="founder-caption">
+            <span class="founder-sparkle">✦</span>
+            <p>Janerockstar Salon</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <div class="founder-quote reveal reveal-delay-1">
+        <blockquote>
+          "Every product I create comes from years behind the chair, listening to my clients, understanding their hair. This isn't just a brand — it's my life's work."
+        </blockquote>
+        <cite>— Jane Magan Chang, Founder</cite>
       </div>
     </div>
   </section>
@@ -153,17 +265,17 @@
       </div>
       <div class="values-grid">
         <div class="value-card reveal reveal-scale">
-          <div class="value-icon">🏆</div>
+          <div class="value-icon">✦</div>
           <h3>Professional Excellence</h3>
           <p>Our Hair Botox treatments meet the highest professional standards. We partner only with licensed cosmetologists and certified salons to ensure every application delivers exceptional results.</p>
         </div>
         <div class="value-card reveal reveal-scale reveal-delay-1">
-          <div class="value-icon">🌿</div>
+          <div class="value-icon">✦</div>
           <h3>Natural Ingredients</h3>
           <p>We are committed to formaldehyde-free, needle-free, and chemical-free formulations. Our products are crafted with keratin, collagen, vitamins, and botanical extracts — nothing harmful, ever.</p>
         </div>
         <div class="value-card reveal reveal-scale reveal-delay-2">
-          <div class="value-icon">💛</div>
+          <div class="value-icon">✦</div>
           <h3>Restorative Care</h3>
           <p>True restoration goes beyond surface-level fixes. We treat the whole hair — from scalp to tip — with deep, lasting solutions that improve hair health over time, not just on treatment day.</p>
         </div>
