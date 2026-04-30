@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initBackToTop();
     init3DTilt();
+    initFloatingLeaves();
   }
 
 
@@ -645,4 +646,82 @@ function initEduHeroParallax() {
       ticking = true;
     }
   }, { passive: true });
+}
+
+/* ---- Floating Leaves ---- */
+function initFloatingLeaves() {
+  // Create container
+  const container = document.createElement('div');
+  container.classList.add('floating-leaves-container');
+  document.body.appendChild(container);
+
+  // SVG leaf shapes — 3 organic varieties
+  const leafSVGs = [
+    // Simple oval leaf
+    `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2 C30 8, 36 18, 34 30 C32 36, 26 38, 20 38 C14 38, 8 36, 6 30 C4 18, 10 8, 20 2Z" fill="#7A8B6F" opacity="0.7"/>
+      <line x1="20" y1="6" x2="20" y2="36" stroke="#5C6B4F" stroke-width="0.8" opacity="0.5"/>
+    </svg>`,
+    // Pointed leaf with vein
+    `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 1 C28 10, 35 20, 30 32 C26 38, 20 39, 20 39 C20 39, 14 38, 10 32 C5 20, 12 10, 20 1Z" fill="#9BAF8E" opacity="0.6"/>
+      <path d="M20 5 Q22 15, 20 38" stroke="#5C6B4F" stroke-width="0.6" fill="none" opacity="0.4"/>
+      <path d="M20 14 Q26 16, 28 20" stroke="#5C6B4F" stroke-width="0.4" fill="none" opacity="0.3"/>
+      <path d="M20 14 Q14 16, 12 20" stroke="#5C6B4F" stroke-width="0.4" fill="none" opacity="0.3"/>
+    </svg>`,
+    // Round herb leaf
+    `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="20" cy="22" rx="14" ry="16" fill="#6B7F5E" opacity="0.5" transform="rotate(-15 20 22)"/>
+      <path d="M20 6 Q21 18, 18 36" stroke="#4A5A3C" stroke-width="0.7" fill="none" opacity="0.4"/>
+    </svg>`
+  ];
+
+  const sizes = ['leaf--sm', 'leaf--md', 'leaf--lg'];
+
+  // Create floating leaves (static, gentle movement)
+  const floatingCount = 8;
+  for (let i = 0; i < floatingCount; i++) {
+    const leaf = document.createElement('div');
+    leaf.classList.add('leaf', 'leaf--float');
+    leaf.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+    leaf.innerHTML = leafSVGs[Math.floor(Math.random() * leafSVGs.length)];
+
+    // Random position across the page
+    leaf.style.left = Math.random() * 95 + '%';
+    leaf.style.top = Math.random() * 90 + '%';
+    leaf.style.opacity = 0.04 + Math.random() * 0.08;
+    leaf.style.animationDuration = (12 + Math.random() * 18) + 's';
+    leaf.style.animationDelay = -(Math.random() * 15) + 's';
+    leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+    container.appendChild(leaf);
+  }
+
+  // Periodically drop a falling leaf
+  function dropLeaf() {
+    const leaf = document.createElement('div');
+    leaf.classList.add('leaf', 'leaf--fall');
+    leaf.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+    leaf.innerHTML = leafSVGs[Math.floor(Math.random() * leafSVGs.length)];
+
+    leaf.style.left = 5 + Math.random() * 90 + '%';
+    leaf.style.top = '-40px';
+    leaf.style.opacity = 0.06 + Math.random() * 0.07;
+
+    const duration = 14 + Math.random() * 12;
+    leaf.style.animationDuration = duration + 's';
+
+    container.appendChild(leaf);
+
+    // Remove after animation ends
+    setTimeout(() => {
+      if (leaf.parentNode) leaf.parentNode.removeChild(leaf);
+    }, duration * 1000 + 500);
+  }
+
+  // Drop first leaf after 3s, then every 8-15s
+  setTimeout(dropLeaf, 3000);
+  setInterval(() => {
+    dropLeaf();
+  }, 8000 + Math.random() * 7000);
 }
