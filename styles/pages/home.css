@@ -21,7 +21,7 @@
   color: var(--color-white); letter-spacing: -0.02em; transition: color 0.3s;
 }
 .nav-logo-text em { font-style: italic; color: var(--color-gold); }
-.navbar.scrolled .nav-logo-text { color: var(--color-white); }
+.navbar.scrolled .nav-logo-text { color: var(--color-charcoal); }
 
 /* ════════════════════════════════════════════
    SCROLL PROGRESS BAR

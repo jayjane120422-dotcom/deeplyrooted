@@ -151,8 +151,8 @@ p { margin-bottom: var(--space-md); color: var(--color-gray-700); }
   background: transparent;
 }
 .navbar.scrolled {
-  background: rgba(74, 90, 60, 0.95); backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  background: rgba(240, 235, 224, 0.97); backdrop-filter: blur(12px);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 .navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .nav-logo {
@@ -162,8 +162,8 @@ p { margin-bottom: var(--space-md); color: var(--color-gray-700); }
   text-decoration: none;
 }
 .nav-logo span { color: var(--color-gold); }
-.navbar.scrolled .nav-logo { color: var(--color-white); }
-.navbar.scrolled .nav-logo-text { color: #FFFFFF !important; }
+.navbar.scrolled .nav-logo { color: var(--color-charcoal); }
+.navbar.scrolled .nav-logo-text { color: var(--color-charcoal) !important; }
 .navbar.scrolled .nav-logo-text em,
 .navbar.scrolled .nav-logo-text span { color: var(--color-gold) !important; }
 .nav-links { display: flex; align-items: center; gap: var(--space-2xl); }
@@ -178,7 +178,7 @@ p { margin-bottom: var(--space-md); color: var(--color-gray-700); }
 }
 .nav-links a:hover, .nav-links a.active { color: var(--color-white); }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-.navbar.scrolled .nav-links a { color: rgba(255,255,255,0.9); font-weight: 600; }
+.navbar.scrolled .nav-links a { color: var(--color-charcoal); font-weight: 600; }
 .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--color-gold); }
 .nav-cta {
   padding: 0.6rem 1.6rem; border-radius: var(--radius-md); font-weight: 600; font-size: 0.85rem;
@@ -194,7 +194,7 @@ p { margin-bottom: var(--space-md); color: var(--color-gray-700); }
   width: 26px; height: 2.5px; background: var(--color-white); border-radius: 2px;
   transition: all var(--transition-base);
 }
-.navbar.scrolled .hamburger span { background: var(--color-white); }
+.navbar.scrolled .hamburger span { background: var(--color-charcoal); }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
