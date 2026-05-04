@@ -4,399 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop — Deeply Rooted Hair Essentials</title>
-  <meta name="description" content="Shop professional Hair Botox treatments by Deeply Rooted. Cynty, Michelle, and Scalp Renewal Treatment — salon-grade formulas for healthy, beautiful hair.">
+  <meta name="description" content="Shop professional Hair Botox treatments by Deeply Rooted. Cynty, Michelle, and Scalp Renewal Treatment.">
 
-  <!-- Performance: Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link rel="stylesheet" href="styles/main.css?v=20260504">
+  <link rel="stylesheet" href="styles/main.css?v=20260504b">
 
   <style>
-    /* ═══════════════════════════════════════
-       SHOP PAGE STYLES
-    ═══════════════════════════════════════ */
+    /* ═══════════════════════════════
+       SHOP PAGE — Clean Minimal
+    ═══════════════════════════════ */
 
-    /* Hero Banner */
+    /* Hide nav logo image on this page to prevent overlap */
+    .nav-logo-img { max-height: 32px !important; }
+
+    /* ── Hero ── */
     .shop-hero {
-      position: relative;
-      padding: 10rem 0 5rem;
-      background: linear-gradient(135deg, #2c2c1e 0%, #3d3927 30%, #4a4530 50%, #3d3927 70%, #2c2c1e 100%);
+      padding: 11rem 2rem 4rem;
       text-align: center;
-      overflow: hidden;
-    }
-
-    .shop-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(197,165,90,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .shop-hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 80px;
-      background: linear-gradient(to top, var(--color-cream, #faf7f2), transparent);
-      pointer-events: none;
-    }
-
-    .shop-hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .shop-hero-eyebrow {
-      font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: 0.85rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(197,165,90,0.8);
-      margin-bottom: 1rem;
+      background: var(--color-cream, #faf7f2);
+      border-bottom: 1px solid rgba(197,165,90,0.1);
     }
 
     .shop-hero h1 {
       font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 300;
-      color: #fff;
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--color-text, #2c2c1e);
+      margin: 0 0 0.5rem;
     }
 
     .shop-hero h1 em {
+      color: var(--color-gold, #c5a55a);
       font-style: italic;
-      color: #c5a55a;
     }
 
-    .shop-hero-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* Trust Badges Row */
-    .shop-trust {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      padding: 2rem 0;
-      margin: 0 auto 1rem;
-    }
-
-    .shop-trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .shop-hero p {
+      font-size: 0.95rem;
       color: var(--color-text-muted, #8a7e6b);
+      max-width: 420px;
+      margin: 0 auto;
     }
 
-    .shop-trust-icon {
-      font-size: 1.1rem;
-    }
-
-    /* Products Section */
-    .shop-products {
-      padding: 3rem 0 5rem;
+    /* ── Product Grid ── */
+    .shop-section {
+      padding: 4rem 0 5rem;
       background: var(--color-cream, #faf7f2);
     }
 
-    .shop-section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .shop-section-header h2 {
-      font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--color-text, #2c2c1e);
-      font-weight: 400;
-    }
-
-    .shop-section-header p {
-      color: var(--color-text-muted, #8a7e6b);
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    /* Product Grid */
     .shop-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      max-width: 1100px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    /* Product Card */
+    /* ── Product Card ── */
     .shop-card {
       background: #fff;
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(44,44,30,0.06);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      border: 1px solid rgba(0,0,0,0.04);
     }
 
     .shop-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 40px rgba(44,44,30,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(44,44,30,0.08);
     }
 
-    /* Sale Badge */
-    .shop-badge {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      background: linear-gradient(135deg, #c5a55a, #d4b76a);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      z-index: 2;
-      box-shadow: 0 2px 8px rgba(197,165,90,0.3);
-    }
-
-    /* Product Image */
-    .shop-card-image {
+    /* Image */
+    .shop-card-img {
       position: relative;
-      padding: 2rem;
-      background: linear-gradient(180deg, #f5f0e8 0%, #ede7db 100%);
+      aspect-ratio: 1;
+      background: #f5f1ea;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 320px;
+      padding: 1.5rem;
       overflow: hidden;
     }
 
-    .shop-card-image::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 40px;
-      background: linear-gradient(to top, #fff, transparent);
-      pointer-events: none;
-    }
-
-    .shop-card-image img {
-      max-height: 280px;
-      width: auto;
+    .shop-card-img img {
+      max-height: 100%;
       max-width: 100%;
       object-fit: contain;
-      transition: transform 0.5s ease;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.08));
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
     }
 
-    .shop-card:hover .shop-card-image img {
-      transform: scale(1.05);
+    .shop-card:hover .shop-card-img img {
+      transform: scale(1.06);
     }
 
-    /* Product Info */
-    .shop-card-info {
-      padding: 1.8rem 2rem 2rem;
+    .shop-sale-tag {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      background: var(--color-gold, #c5a55a);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
     }
 
-    .shop-card-name {
+    /* Info */
+    .shop-card-body {
+      padding: 1.2rem 1.4rem 1.6rem;
+    }
+
+    .shop-card-body h3 {
       font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 500;
       color: var(--color-text, #2c2c1e);
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.3rem;
     }
 
-    .shop-card-desc {
-      font-size: 0.9rem;
+    .shop-card-body .shop-desc {
+      font-size: 0.8rem;
       color: var(--color-text-muted, #8a7e6b);
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
+      line-height: 1.5;
+      margin: 0 0 0.8rem;
     }
 
     /* Price */
-    .shop-card-price {
+    .shop-price {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    .shop-price-current {
+    .shop-price strong {
       font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: 1.6rem;
-      font-weight: 600;
+      font-size: 1.4rem;
       color: var(--color-text, #2c2c1e);
     }
 
-    .shop-price-original {
-      font-size: 1rem;
+    .shop-price del {
+      font-size: 0.85rem;
       color: #bbb;
-      text-decoration: line-through;
     }
 
-    .shop-price-save {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #c5a55a;
-      background: rgba(197,165,90,0.1);
-      padding: 0.2rem 0.6rem;
-      border-radius: 50px;
-      letter-spacing: 0.05em;
-    }
-
-    /* Features List */
-    .shop-card-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-    }
-
-    .shop-card-features li {
-      font-size: 0.78rem;
-      color: var(--color-text-muted, #8a7e6b);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .shop-card-features li::before {
-      content: '✓';
-      font-weight: 700;
-      color: var(--color-sage, #7a8c6e);
-      font-size: 0.7rem;
-    }
-
-    /* Buy Button */
-    .shop-btn {
+    /* Button */
+    .shop-buy {
       display: block;
       width: 100%;
-      padding: 1rem;
+      padding: 0.75rem;
+      background: var(--color-text, #2c2c1e);
+      color: #fff;
       border: none;
-      border-radius: 12px;
+      border-radius: 8px;
       font-family: var(--font-body, 'Outfit', sans-serif);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       text-align: center;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease;
     }
 
-    .shop-btn-primary {
-      background: linear-gradient(135deg, #c5a55a 0%, #d4b76a 50%, #c5a55a 100%);
-      background-size: 200% auto;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(197,165,90,0.3);
+    .shop-buy:hover {
+      background: var(--color-gold, #c5a55a);
     }
 
-    .shop-btn-primary:hover {
-      background-position: right center;
-      box-shadow: 0 6px 20px rgba(197,165,90,0.4);
-      transform: translateY(-2px);
-    }
-
-    .shop-btn-secondary {
-      background: transparent;
-      color: var(--color-text, #2c2c1e);
-      border: 2px solid rgba(44,44,30,0.15);
-    }
-
-    .shop-btn-secondary:hover {
-      border-color: #c5a55a;
-      color: #c5a55a;
-    }
-
-    /* Scripture Quote */
-    .shop-scripture {
+    /* ── Scripture ── */
+    .shop-quote {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem 4rem;
       background: var(--color-cream, #faf7f2);
     }
 
-    .shop-scripture blockquote {
+    .shop-quote blockquote {
       font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-size: 1.3rem;
       font-style: italic;
       font-weight: 300;
       color: var(--color-text, #2c2c1e);
-      max-width: 700px;
+      max-width: 550px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .shop-scripture cite {
+    .shop-quote cite {
       display: block;
-      margin-top: 1rem;
-      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
       font-style: normal;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--color-gold, #c5a55a);
     }
 
-    /* Professional Note */
-    .shop-pro-note {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      padding: 2rem;
-      background: linear-gradient(135deg, rgba(197,165,90,0.05), rgba(122,140,110,0.05));
-      border: 1px solid rgba(197,165,90,0.15);
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .shop-pro-note h3 {
-      font-family: var(--font-accent, 'Cormorant Garamond', serif);
-      font-size: 1.3rem;
-      color: var(--color-text, #2c2c1e);
-      margin-bottom: 0.5rem;
-    }
-
-    .shop-pro-note p {
-      font-size: 0.9rem;
-      color: var(--color-text-muted, #8a7e6b);
-      line-height: 1.7;
-    }
-
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      .shop-hero { padding: 8rem 1rem 3rem; }
-      .shop-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
-      .shop-card-features { grid-template-columns: 1fr; }
-      .shop-trust { gap: 1rem; }
-      .shop-trust-item { font-size: 0.7rem; }
+      .shop-hero { padding: 8rem 1.5rem 3rem; }
+      .shop-grid { grid-template-columns: 1fr; max-width: 400px; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
   <noscript>
     <style>
       .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .reveal-blur {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        animation: none !important;
+        opacity: 1 !important; transform: none !important;
+        filter: none !important; animation: none !important;
       }
     </style>
   </noscript>
 </head>
 <body>
 
-  <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- Navigation -->
@@ -422,7 +251,6 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <div class="mobile-overlay" id="mobile-overlay"></div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
@@ -432,140 +260,74 @@
     <a href="shop.html" class="btn btn-primary" style="margin-top:1rem;">Shop Now</a>
   </div>
 
-  <!-- ═══════════════════════════════════════════
-       SHOP HERO
-  ═══════════════════════════════════════════ -->
+  <!-- Hero -->
   <section class="shop-hero">
-    <div class="shop-hero-content">
-      <p class="shop-hero-eyebrow">✦ Professional Hair Care ✦</p>
-      <h1>The <em>Collection</em></h1>
-      <p class="shop-hero-subtitle">Salon-grade Hair Botox treatments formulated with care. Rooted in faith, designed for results.</p>
-    </div>
+    <h1>Our <em>Products</em></h1>
+    <p>Salon-grade Hair Botox treatments. Rooted in faith, designed for results.</p>
   </section>
 
-  <!-- Trust Badges -->
-  <div class="shop-trust">
-    <span class="shop-trust-item"><span class="shop-trust-icon">🔒</span> Secure Checkout</span>
-    <span class="shop-trust-item"><span class="shop-trust-icon">🚚</span> Fast Shipping</span>
-    <span class="shop-trust-item"><span class="shop-trust-icon">🌿</span> Clean Ingredients</span>
-    <span class="shop-trust-item"><span class="shop-trust-icon">🏆</span> Professional Grade</span>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       PRODUCTS
-  ═══════════════════════════════════════════ -->
-  <section class="shop-products">
-    <div class="shop-section-header">
-      <h2>Hair Botox Treatments</h2>
-      <p>Professional-use formulas for salon-smooth, healthy hair</p>
-    </div>
-
-    <!-- Pro Note -->
-    <div class="shop-pro-note">
-      <h3>🌿 For Professional Use Only</h3>
-      <p>Our Hair Botox treatments are salon-grade formulas designed for licensed stylists. Each 1000ml bottle delivers multiple full treatments — the best investment for your salon.</p>
-    </div>
-
+  <!-- Products -->
+  <section class="shop-section">
     <div class="shop-grid">
 
       <!-- Cynty -->
-      <div class="shop-card reveal">
-        <span class="shop-badge">Sale — Save 33%</span>
-        <div class="shop-card-image">
-          <img src="assets/images/product-cynty-raw.png" alt="Hair Botox Cynty — Professional Treatment">
+      <div class="shop-card">
+        <div class="shop-card-img">
+          <span class="shop-sale-tag">Sale</span>
+          <img src="assets/images/product-cynty-raw.png" alt="Hair Botox Cynty">
         </div>
-        <div class="shop-card-info">
-          <h3 class="shop-card-name">Hair Botox "Cynty"</h3>
-          <p class="shop-card-desc">Our bestselling formula — perfect for curl enhancement and frizz control. Ideal for all hair types.</p>
-          <div class="shop-card-price">
-            <span class="shop-price-current">$50.00</span>
-            <span class="shop-price-original">$75.00</span>
-            <span class="shop-price-save">SAVE $25</span>
+        <div class="shop-card-body">
+          <h3>Hair Botox "Cynty"</h3>
+          <p class="shop-desc">Bestselling formula — curl enhancing, anti-frizz, lasts up to 3 months. 1000ml.</p>
+          <div class="shop-price">
+            <strong>$50.00</strong>
+            <del>$75.00</del>
           </div>
-          <ul class="shop-card-features">
-            <li>Lasts up to 3 months</li>
-            <li>Frizz solution</li>
-            <li>Curl enhancing</li>
-            <li>Hair restoration</li>
-            <li>Sleek hair</li>
-            <li>1000ml bottle</li>
-          </ul>
-          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/hair-botox-cynty" target="_blank" class="shop-btn shop-btn-primary">Buy Now — $50.00</a>
+          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/hair-botox-cynty" target="_blank" class="shop-buy">Buy Now</a>
         </div>
       </div>
 
       <!-- Michelle -->
-      <div class="shop-card reveal">
-        <span class="shop-badge">Sale — Save 33%</span>
-        <div class="shop-card-image">
-          <img src="assets/images/product-michelle-raw.png" alt="Hair Botox Michelle — Professional Treatment">
+      <div class="shop-card">
+        <div class="shop-card-img">
+          <span class="shop-sale-tag">Sale</span>
+          <img src="assets/images/product-michelle-raw.png" alt="Hair Botox Michelle">
         </div>
-        <div class="shop-card-info">
-          <h3 class="shop-card-name">Hair Botox "Michelle"</h3>
-          <p class="shop-card-desc">Maximum strength formula for deep repair and lasting straightening. The pro's choice for damaged hair.</p>
-          <div class="shop-card-price">
-            <span class="shop-price-current">$50.00</span>
-            <span class="shop-price-original">$75.00</span>
-            <span class="shop-price-save">SAVE $25</span>
+        <div class="shop-card-body">
+          <h3>Hair Botox "Michelle"</h3>
+          <p class="shop-desc">Maximum strength — deep repair, 60% straighter hair, lasts up to 5 months. 1000ml.</p>
+          <div class="shop-price">
+            <strong>$50.00</strong>
+            <del>$75.00</del>
           </div>
-          <ul class="shop-card-features">
-            <li>Lasts up to 5 months</li>
-            <li>60% straighter hair</li>
-            <li>Deep repair</li>
-            <li>Anti-frizz</li>
-            <li>Hair restoration</li>
-            <li>1000ml bottle</li>
-          </ul>
-          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/untitled-apr2_02-59" target="_blank" class="shop-btn shop-btn-primary">Buy Now — $50.00</a>
+          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/untitled-apr2_02-59" target="_blank" class="shop-buy">Buy Now</a>
         </div>
       </div>
 
       <!-- Scalp Treatment -->
-      <div class="shop-card reveal">
-        <div class="shop-card-image">
-          <img src="assets/images/product-scalp-treatment.png" alt="Deeply Rooted Scalp Renewal Treatment">
+      <div class="shop-card">
+        <div class="shop-card-img">
+          <img src="assets/images/product-scalp-treatment.png" alt="Scalp Renewal Treatment">
         </div>
-        <div class="shop-card-info">
-          <h3 class="shop-card-name">Scalp Renewal Treatment</h3>
-          <p class="shop-card-desc">A targeted scalp treatment that promotes hair growth, strengthens roots, and detoxifies your scalp naturally.</p>
-          <div class="shop-card-price">
-            <span class="shop-price-current">$35.00</span>
+        <div class="shop-card-body">
+          <h3>Scalp Renewal Treatment</h3>
+          <p class="shop-desc">Promotes hair growth, strengthens roots, detoxifies scalp. 4 oz (118 mL).</p>
+          <div class="shop-price">
+            <strong>$35.00</strong>
           </div>
-          <ul class="shop-card-features">
-            <li>Promotes hair growth</li>
-            <li>Strengthens roots</li>
-            <li>Detoxifies scalp</li>
-            <li>Salon-grade formula</li>
-            <li>4 oz (118 mL)</li>
-            <li>Clean ingredients</li>
-          </ul>
-          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/deeply-rooted-scalp-treatment" target="_blank" class="shop-btn shop-btn-primary">Buy Now — $35.00</a>
+          <a href="https://hair-botox-deeply-rooted.myshopify.com/products/deeply-rooted-scalp-treatment" target="_blank" class="shop-buy">Buy Now</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Scripture -->
-  <section class="shop-scripture">
+  <!-- Quote -->
+  <section class="shop-quote">
     <blockquote>
       "They will be like a tree planted by the water that sends out its roots by the stream."
       <cite>— Jeremiah 17:8 🌿</cite>
     </blockquote>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-banner reveal">
-    <div class="container">
-      <div class="cta-banner-content" style="text-align:center;">
-        <h2>Questions? We're Here to Help.</h2>
-        <p>Whether you need product guidance or want to book a treatment at Janerockstar Salon, we'd love to connect.</p>
-        <div class="cta-banner-actions">
-          <a href="contact.html" class="btn btn-gold-lg btn-ripple">Contact Us</a>
-          <a href="hair-botox-101.html" class="btn btn-ghost-lg btn-ripple">Learn About Hair Botox</a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Footer -->
@@ -574,7 +336,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">Deeply <span>Rooted</span></a>
-          <p>Professional Hair Botox treatments rooted in faith, formulated with care. Healthy scalp. Salon-smooth hair.</p>
+          <p>Professional Hair Botox treatments rooted in faith, formulated with care.</p>
           <div class="footer-social" style="margin-top:1rem;">
             <a href="https://www.facebook.com/people/Deeply-Rooted-Hair-Essentials-Merchandise/61566217615189/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#1877F2"/><path d="M25 18.09h-2.86v8.71H19V18.09h-2.05v-3h2.05v-1.86c0-2.04 1.2-3.15 3.05-3.15.88 0 1.8.16 1.8.16v2h-1.02c-1 0-1.31.62-1.31 1.26v1.59H25l-.55 3z" fill="#fff"/></svg></a>
             <a href="https://www.instagram.com/deeplyrootedtm/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 36 36" fill="none"><defs><radialGradient id="igf3" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="36" height="36" rx="8" fill="url(#igf3)"/><rect x="8" y="8" width="20" height="20" rx="6" stroke="#fff" stroke-width="2" fill="none"/><circle cx="18" cy="18" r="5" stroke="#fff" stroke-width="2" fill="none"/><circle cx="24.5" cy="11.5" r="1.5" fill="#fff"/></svg></a>
@@ -606,12 +368,6 @@
           </div>
         </div>
       </div>
-      <div class="footer-trust">
-        <span class="footer-trust-item"><span class="footer-trust-icon">🔒</span> Secure Checkout</span>
-        <span class="footer-trust-item"><span class="footer-trust-icon">🚚</span> Free Shipping on Orders $100+</span>
-        <span class="footer-trust-item"><span class="footer-trust-icon">🏆</span> Professional Grade</span>
-        <span class="footer-trust-item"><span class="footer-trust-icon">🌿</span> Clean Ingredients</span>
-      </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Deeply Rooted Hair Essentials. All rights reserved.</p>
         <p class="footer-scripture">"Blessed is the one who trusts in the Lord" — Jeremiah 17:8</p>
@@ -619,7 +375,6 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg class="back-to-top-ring" viewBox="0 0 36 36">
       <circle class="ring-bg" cx="18" cy="18" r="16" fill="none" stroke="rgba(197,165,90,0.2)" stroke-width="2"/>
@@ -628,6 +383,6 @@
     <span class="back-to-top-arrow">↑</span>
   </button>
 
-  <script src="scripts/main.js?v=20260504"></script>
+  <script src="scripts/main.js?v=20260504b"></script>
 </body>
 </html>
