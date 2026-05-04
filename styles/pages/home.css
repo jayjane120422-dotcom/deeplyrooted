@@ -364,23 +364,23 @@
 .lineup-card-image {
   position: relative;
   display: flex; align-items: center; justify-content: center;
-  padding: 2.5rem 2rem 1.5rem;
-  min-height: 280px;
+  padding: 1.5rem 1.5rem 1rem;
+  min-height: 180px;
   background: linear-gradient(180deg, rgba(248,245,238,0.5) 0%, rgba(255,255,255,0) 100%);
 }
 .lineup-card-glow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 180px; height: 180px; border-radius: 50%;
+  width: 140px; height: 140px; border-radius: 50%;
   background: radial-gradient(circle, rgba(197,165,90,0.15) 0%, transparent 70%);
   transition: all 0.5s ease;
 }
 .lineup-card:hover .lineup-card-glow {
-  width: 220px; height: 220px;
+  width: 180px; height: 180px;
   background: radial-gradient(circle, rgba(197,165,90,0.25) 0%, transparent 70%);
 }
 .lineup-card-image img {
   position: relative; z-index: 2;
-  max-height: 240px; max-width: 100%; object-fit: contain;
+  max-height: 160px; max-width: 100%; object-fit: contain;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -390,13 +390,13 @@
 
 /* Card Content */
 .lineup-card-content {
-  padding: 0 2rem 2rem;
+  padding: 0 1.5rem 1.5rem;
 }
 .lineup-card-content h3 {
   font-family: var(--font-heading);
-  font-size: 1.6rem; font-weight: 700; font-style: italic;
+  font-size: 1.35rem; font-weight: 700; font-style: italic;
   color: var(--color-charcoal);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Duration Bar */
@@ -404,9 +404,9 @@
   position: relative;
   background: rgba(0,0,0,0.06);
   border-radius: 50px;
-  height: 32px;
+  height: 26px;
   overflow: hidden;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 .lineup-duration-bar {
   position: absolute; top: 0; left: 0; bottom: 0;
@@ -418,7 +418,7 @@
 .lineup-duration-text {
   position: relative; z-index: 2;
   display: flex; align-items: center; justify-content: center;
-  height: 100%; font-size: 0.8rem; font-weight: 500;
+  height: 100%; font-size: 0.75rem; font-weight: 500;
   color: var(--color-charcoal);
   mix-blend-mode: normal;
 }
@@ -428,22 +428,22 @@
 
 /* Features List */
 .lineup-features {
-  list-style: none; padding: 0; margin: 0 0 1.25rem;
-  display: flex; flex-direction: column; gap: 0.5rem;
+  list-style: none; padding: 0; margin: 0 0 1rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
 }
 .lineup-features li {
-  position: relative; padding-left: 1.4rem;
-  font-size: 0.88rem; color: var(--color-gray-700); line-height: 1.6;
+  position: relative; padding-left: 1.2rem;
+  font-size: 0.8rem; color: var(--color-gray-700); line-height: 1.4;
 }
 .lineup-features li::before {
   content: '✓'; position: absolute; left: 0; top: 0;
-  color: var(--color-sage-dark); font-weight: 700; font-size: 0.85rem;
+  color: var(--color-sage-dark); font-weight: 700; font-size: 0.8rem;
 }
 
 /* Card Button */
 .lineup-btn {
   width: 100%; justify-content: center;
-  font-size: 0.88rem; padding: 0.85rem 1.5rem;
+  font-size: 0.8rem; padding: 0.75rem 1rem;
 }
 
 /* Inner shimmer on hover */
@@ -546,9 +546,10 @@
 /* ── Product Lineup Responsive ── */
 @media (max-width: 600px) {
   .lineup-grid { grid-template-columns: 1fr; }
-  .lineup-card-image { min-height: 220px; padding: 2rem 1.5rem 1rem; }
-  .lineup-card-image img { max-height: 200px; }
-  .lineup-card-content { padding: 0 1.5rem 1.5rem; }
+  .lineup-card-image { min-height: 140px; padding: 1.5rem 1rem 0.5rem; }
+  .lineup-card-image img { max-height: 120px; }
+  .lineup-card-content { padding: 0 1.5rem 1.25rem; }
+  .lineup-card-content h3 { font-size: 1.25rem; }
 }
 
 
