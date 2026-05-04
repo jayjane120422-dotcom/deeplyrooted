@@ -315,11 +315,11 @@
   white-space: nowrap;
 }
 
-/* 2x2 Product Grid */
+/* 3-Column Product Grid */
 .lineup-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 /* Individual Product Card */
@@ -544,6 +544,9 @@
 .spotlight-badge:hover { transform: translateY(-2px); }
 
 /* ── Product Lineup Responsive ── */
+@media (max-width: 950px) {
+  .lineup-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 600px) {
   .lineup-grid { grid-template-columns: 1fr; }
   .lineup-card-image { min-height: 140px; padding: 1.5rem 1rem 0.5rem; }
