@@ -331,7 +331,30 @@ function initForms() {
     proForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if (validateForm(proForm)) {
-        showFormSuccess(proForm, 'pro-success');
+        const btn = proForm.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.textContent = 'Submitting...';
+        }
+        
+        const formData = new FormData(proForm);
+        fetch(proForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            showFormSuccess(proForm, 'pro-success');
+          } else {
+            alert('Something went wrong. Please try again.');
+            if (btn) { btn.disabled = false; btn.textContent = 'Submit Professional Application →'; }
+          }
+        })
+        .catch(() => {
+          alert('Network error. Please check your connection and try again.');
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit Professional Application →'; }
+        });
       }
     });
   }

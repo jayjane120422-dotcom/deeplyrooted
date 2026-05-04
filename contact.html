@@ -224,7 +224,10 @@
           <strong>Registration received! ✨</strong><br>Thank you for your interest. Our team will verify your license and contact you within 2 business days.
         </div>
 
-        <form id="pro-registration-form" novalidate>
+        <form id="pro-registration-form" action="https://formspree.io/f/mqenkarl" method="POST" novalidate>
+          <!-- Hidden fields for Formspree -->
+          <input type="hidden" name="Form Type" value="Professional Stylist Registration">
+          <input type="text" name="_gotcha" style="display:none">
           <div class="form-row">
             <div class="form-group">
               <label for="pro-first-name">First Name <span class="required">*</span></label>
