@@ -68,39 +68,16 @@
     .sc-btn:hover::before{left:100%}
     .sc-btn:hover{background:linear-gradient(135deg,#c5a55a,#d4b76a);box-shadow:0 8px 25px rgba(197,165,90,.3)}
 
-    /* ═══ FACES PARALLAX ═══ */
-    .sparallax{position:relative;padding:8rem 2rem;background-image:url('assets/images/hero-bg.png');background-attachment:fixed;background-position:center;background-size:cover;overflow:hidden}
-    .sparallax::before{content:'';position:absolute;inset:0;background:rgba(26,26,20,.85)}
-    .sparallax-content{position:relative;z-index:2;max-width:1100px;margin:0 auto}
-    .sparallax-header{text-align:center;margin-bottom:4rem}
-    .sparallax-label{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#c5a55a;margin-bottom:.5rem}
-    .sparallax h2{font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:#fff;margin:0}
-    .sparallax-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
-    .sparallax-card{position:relative;background:rgba(255,255,255,.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:1.2rem;transition:all .4s ease;box-shadow:0 30px 60px rgba(0,0,0,.4)}
-    .sparallax-card:hover{transform:translateY(-15px);background:rgba(255,255,255,.08);border-color:rgba(197,165,90,.4);box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 40px rgba(197,165,90,.1)}
-    .sparallax-img{position:relative;width:100%;aspect-ratio:.75;border-radius:16px;overflow:hidden}
-    .sparallax-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-    .sparallax-card:hover .sparallax-img img{transform:scale(1.08)}
-    .sparallax-glow{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(197,165,90,.4));opacity:0;transition:opacity .4s ease;mix-blend-mode:overlay}
-    .sparallax-card:hover .sparallax-glow{opacity:1}
+
 
     /* ═══ QUOTE ═══ */
-    .sq{text-align:center;padding:4rem 2rem;background:var(--color-cream,#faf7f2);position:relative;overflow:hidden}
-    .sq blockquote{font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(1.1rem,2.5vw,1.6rem);font-style:italic;font-weight:300;color:var(--color-text,#2c2c1e);max-width:600px;margin:0 auto;line-height:1.8;position:relative;z-index:1}
+    .sq{text-align:center;padding:4rem 2rem;background:#1a1a14;position:relative;overflow:hidden}
+    .sq::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,165,90,.08),transparent 60%)}
+    .sq blockquote{font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(1.1rem,2.5vw,1.6rem);font-style:italic;font-weight:300;color:rgba(255,255,255,.8);max-width:600px;margin:0 auto;line-height:1.8;position:relative;z-index:1}
     .sq cite{display:block;margin-top:1rem;font-size:.75rem;font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:#c5a55a}
 
-    @media(max-width:768px){
-      .sh{padding:9rem 1.5rem 4rem}
-      .sg{grid-template-columns:1fr;max-width:400px}
-      .sf{padding:3rem 1rem}
-      .sparallax{padding:4rem 1rem}
-      .sparallax-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
-      .sparallax-card{padding:.8rem;border-radius:16px}
-    }
-    @media(min-width:769px) and (max-width:1024px){
-      .sg{grid-template-columns:repeat(2,1fr)}
-      .sparallax-grid{grid-template-columns:repeat(2,1fr)}
-    }
+    @media(max-width:768px){.sh{padding:9rem 1.5rem 4rem}.sg{grid-template-columns:1fr;max-width:400px}.sf{padding:3rem 1rem}}
+    @media(min-width:769px) and (max-width:1024px){.sg{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
 <body>
@@ -199,45 +176,6 @@
     </div>
   </section>
 
-  <!-- PARALLAX FACES -->
-  <section class="sparallax">
-    <div class="sparallax-content">
-      <div class="sparallax-header">
-        <div class="sparallax-label">✦ Real Results ✦</div>
-        <h2>Beautiful Hair, Real People</h2>
-      </div>
-      <div class="sparallax-grid">
-        <!-- Face 1 -->
-        <div class="sparallax-card">
-          <div class="sparallax-img">
-            <img src="assets/images/founder-1.png" alt="Happy client" onerror="this.src='assets/images/jane-profile.jpg'">
-            <div class="sparallax-glow"></div>
-          </div>
-        </div>
-        <!-- Face 2 -->
-        <div class="sparallax-card">
-          <div class="sparallax-img">
-            <img src="assets/images/founder-2.png" alt="Happy client" onerror="this.src='assets/images/promo-1.jpg'">
-            <div class="sparallax-glow"></div>
-          </div>
-        </div>
-        <!-- Face 3 -->
-        <div class="sparallax-card">
-          <div class="sparallax-img">
-            <img src="assets/images/founder-3.png" alt="Happy client" onerror="this.src='assets/images/promo-2.jpg'">
-            <div class="sparallax-glow"></div>
-          </div>
-        </div>
-        <!-- Face 4 -->
-        <div class="sparallax-card">
-          <div class="sparallax-img">
-            <img src="assets/images/founder-4.png" alt="Happy client" onerror="this.src='assets/images/promo-3.jpg'">
-            <div class="sparallax-glow"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- QUOTE -->
   <section class="sq">
