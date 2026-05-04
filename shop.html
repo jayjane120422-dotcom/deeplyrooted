@@ -68,13 +68,30 @@
     .sc-btn:hover::before{left:100%}
     .sc-btn:hover{background:linear-gradient(135deg,#c5a55a,#d4b76a);box-shadow:0 8px 25px rgba(197,165,90,.3)}
 
+    /* ═══ FACES ═══ */
+    .sfaces{padding:5rem 2rem;background:#1a1a14;position:relative;overflow:hidden}
+    .sfaces::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,165,90,.1),transparent 60%)}
+    .sfaces-label{text-align:center;font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#c5a55a;margin-bottom:.5rem;position:relative;z-index:1}
+    .sfaces h2{text-align:center;font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:400;color:#fff;margin:0 0 .5rem;position:relative;z-index:1}
+    .sfaces-sub{text-align:center;color:rgba(255,255,255,.5);font-size:.9rem;margin:0 auto 3rem;max-width:500px;position:relative;z-index:1}
+    .sfaces-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;max-width:900px;margin:0 auto;position:relative;z-index:1}
+    .sfaces-item{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:.75;cursor:pointer;transition:transform .4s ease}
+    .sfaces-item:hover{transform:scale(1.04)}
+    .sfaces-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s ease;filter:brightness(.9)}
+    .sfaces-item:hover img{transform:scale(1.1);filter:brightness(1)}
+    .sfaces-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(26,26,20,.7));pointer-events:none;transition:opacity .3s}
+    .sfaces-item:hover::after{opacity:.5}
+    .sfaces-item .sfaces-name{position:absolute;bottom:1rem;left:1rem;color:#fff;font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:1rem;font-weight:500;z-index:2;opacity:0;transform:translateY(10px);transition:all .3s ease}
+    .sfaces-item:hover .sfaces-name{opacity:1;transform:translateY(0)}
+    .sfaces-ring{position:absolute;inset:-2px;border-radius:18px;border:2px solid transparent;transition:border-color .3s}
+    .sfaces-item:hover .sfaces-ring{border-color:rgba(197,165,90,.5)}
+
     /* ═══ QUOTE ═══ */
-    .sq{text-align:center;padding:4rem 2rem;background:#1a1a14;position:relative;overflow:hidden}
-    .sq::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,165,90,.08),transparent 60%)}
-    .sq blockquote{font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(1.1rem,2.5vw,1.6rem);font-style:italic;font-weight:300;color:rgba(255,255,255,.8);max-width:600px;margin:0 auto;line-height:1.8;position:relative;z-index:1}
+    .sq{text-align:center;padding:4rem 2rem;background:var(--color-cream,#faf7f2);position:relative;overflow:hidden}
+    .sq blockquote{font-family:var(--font-accent,'Cormorant Garamond',serif);font-size:clamp(1.1rem,2.5vw,1.6rem);font-style:italic;font-weight:300;color:var(--color-text,#2c2c1e);max-width:600px;margin:0 auto;line-height:1.8;position:relative;z-index:1}
     .sq cite{display:block;margin-top:1rem;font-size:.75rem;font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:#c5a55a}
 
-    @media(max-width:768px){.sh{padding:9rem 1.5rem 4rem}.sg{grid-template-columns:1fr;max-width:400px}.sf{padding:3rem 1rem}}
+    @media(max-width:768px){.sh{padding:9rem 1.5rem 4rem}.sg{grid-template-columns:1fr;max-width:400px}.sf{padding:3rem 1rem}.sfaces-grid{grid-template-columns:repeat(2,1fr)}.sfaces{padding:3rem 1rem}}
     @media(min-width:769px) and (max-width:1024px){.sg{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
@@ -170,6 +187,35 @@
           <div class="sc-price"><strong>$35.00</strong></div>
           <a href="https://hair-botox-deeply-rooted.myshopify.com/products/deeply-rooted-scalp-treatment" target="_blank" class="sc-btn">Shop Now →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACES -->
+  <section class="sfaces">
+    <p class="sfaces-label">✦ Real Results ✦</p>
+    <h2>Beautiful Hair, Real People</h2>
+    <p class="sfaces-sub">See the transformation — powered by Deeply Rooted treatments</p>
+    <div class="sfaces-grid">
+      <div class="sfaces-item">
+        <div class="sfaces-ring"></div>
+        <img src="assets/images/jane-profile.jpg" alt="Jane — Founder" loading="lazy">
+        <span class="sfaces-name">Jane ✨</span>
+      </div>
+      <div class="sfaces-item">
+        <div class="sfaces-ring"></div>
+        <img src="assets/images/promo-3.jpg" alt="Deeply Rooted client" loading="lazy">
+        <span class="sfaces-name">Salon Results 💛</span>
+      </div>
+      <div class="sfaces-item">
+        <div class="sfaces-ring"></div>
+        <img src="assets/images/promo-2.jpg" alt="Deeply Rooted products showcase" loading="lazy">
+        <span class="sfaces-name">Our Products 🌿</span>
+      </div>
+      <div class="sfaces-item">
+        <div class="sfaces-ring"></div>
+        <img src="assets/images/promo-1.jpg" alt="Deeply Rooted customer" loading="lazy">
+        <span class="sfaces-name">Hair Goals 💫</span>
       </div>
     </div>
   </section>
